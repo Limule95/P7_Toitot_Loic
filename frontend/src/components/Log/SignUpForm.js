@@ -66,6 +66,9 @@ const SignUpForm = () => {
         document.querySelector("#pseudo").value = null;
         document.querySelector("#email").value = null;
         document.querySelector("#password").value = null;
+        document.querySelector("#firstName").value = null;
+        document.querySelector("#lastName").value = null;
+        document.querySelector("#isAuthor").checked = false;
         <ToastContainer />;
       })
       .catch((res) => {

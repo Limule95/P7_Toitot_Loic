@@ -25,8 +25,7 @@ const Acceuil = () => {
   const [modalId, setModalId] = useState("");
 
   // Recupération des likes de l'utilisateur
-  const likesUser = user.likes;
-
+  
   // function de récupération de l'id du post et de control d'accès aux modifications des posts
   const toggleFormAcces = (e) => {
     setModalId(e.target.id);
@@ -74,6 +73,7 @@ const Acceuil = () => {
   const handlePost = (e) => {
     e.preventDefault();
     let pseudo = user.pseudo;
+    let author = user.isAuthor;
     const message = document.querySelector("#message").value;
     let image = document.getElementById("file-create").files[0];
     axios({
@@ -86,6 +86,7 @@ const Acceuil = () => {
       data: {
         pseudo,
         message,
+        author,
         image: image,
       },
     })
@@ -149,48 +150,7 @@ const Acceuil = () => {
       });
   };
   // function requette (PATCH) like
-  const like = (e) => {
-    e.preventDefault();
-    const id = e.target.id;
-
-    axios({
-      method: "patch",
-      url: `http://localhost:8000/api/post/like-post/${id}`,
-      headers: {
-        authorization: `Bearer ${tokenLocalStorage}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        setLoading(true);
-        console.log(res);
-      })
-      .catch((res) => {
-        console.log(res);
-      });
-  };
-
-  // function requette (PATCH) dislike
-  const unlike = (e) => {
-    e.preventDefault();
-    const id = e.target.id;
-    axios({
-      method: "patch",
-      url: `http://localhost:8000/api/post/unlike-post/${id}`,
-      headers: {
-        authorization: `Bearer ${tokenLocalStorage}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        setLoading(true);
-        console.log(res);
-      })
-      .catch((res) => {
-        console.log(res);
-      });
-  };
-
+  
   // Function de déconnection
   const logOut = () => {
     localStorage.clear();
@@ -267,9 +227,10 @@ const Acceuil = () => {
                 <div className="acceuil-page__all-post__post__post-info__box-text">
                   <div className="acceuil-page__all-post__post__post-info__box-text__post-pseudo">
                     <p>{post.pseudo}</p>
+                    <p>Auteur : {post.author}</p>
                   </div>
                   <div className="acceuil-page__all-post__post__post-info__box-text__post-text">
-                    <p>{post.message}</p>
+                    <p>Résumé : {post.message}</p>
                   </div>
                 </div>
                 {post.image && (
@@ -280,28 +241,7 @@ const Acceuil = () => {
 
                 {/* ************  Interaction  ************ */}
                 <div className="acceuil-page__all-post__post__post-info__box-event-interact">
-                  <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-likes">
-                    {likesUser.includes(post._id) && (
-                      <button
-                        className="btn-unlike"
-                        id={post._id}
-                        onClick={unlike}
-                      >
-                        <i
-                          className="fa-solid fa-thumbs-down"
-                          id={post._id}
-                        ></i>
-                      </button>
-                    )}
-                    {!likesUser.includes(post._id) && (
-                      <button className="btn-like" id={post._id} onClick={like}>
-                        <i
-                          className="fa-sharp fa-solid fa-thumbs-up"
-                          id={post._id}
-                        ></i>
-                      </button>
-                    )}
-                  </div>
+                  <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">STARS</div>
 
                   <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
                     {(user._id === post.userId || user.isAdmin === true) && (
