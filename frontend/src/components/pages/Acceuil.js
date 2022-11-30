@@ -236,7 +236,7 @@ const Acceuil = () => {
             onSubmit={handlePost}
           >
             <div className="acceuil-page__form-container-create__form-new-post__form-text">
-              <label htmlFor="message">Qu'avez-vous a dire ?</label>
+              <label htmlFor="message">Synopsis, </label>
               <textarea name="text" id="message" />
             </div>
             <div className="acceuil-page__form-container-create__form-new-post__form-file">
@@ -244,9 +244,9 @@ const Acceuil = () => {
                 htmlFor="file-create"
                 className="acceuil-page__form-container-create__form-new-post__form-file__file"
               >
-                Upload
+                Photo du
                 <i className="fa-solid fa-image"></i>
-                Something !
+                Tome !
                 <input type="file" name="file" id="file-create" />
               </label>
             </div>
