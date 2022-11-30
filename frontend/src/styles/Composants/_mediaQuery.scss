@@ -1,4 +1,84 @@
 //******** Media query page connection / inscription : ********
+@media screen and (max-width: 1550px) {
+  .acceuil-page {
+    &__navbar {
+      &__logo {
+        img {
+
+        }
+      }
+      &__navbar-btn {
+        &__btn-logout {
+          h1 {
+          }
+          i {
+          }
+        }
+      }
+    }
+    &__form-container-create {
+      p {
+      }
+      &__form-new-post {
+        &__form-text {
+          label {
+          }
+          textarea {
+          }
+        }
+        &__form-file {
+        }
+        &__form-btn-post {
+        }
+      }
+    }
+    &__all-post {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 800px;
+      &__post {
+        &__post-info {
+          &__box-text {
+          }
+          &__box-img {
+            img {
+            }
+          }
+          &__box-event-interact {
+            &__box-likes {
+            }
+            &__box-update-modal {
+              button {
+              }
+            }
+          }
+        }
+        &__modal {
+          &__interact {
+            &__form-container-update {
+              &__form-update-post {
+                &__form-text {
+                  textarea {
+                  }
+                }
+                &__form-file {
+                }
+                &__form-btn-update {
+                }
+              }
+            }
+
+            &__delete-post {
+              i {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
 @media screen and (max-width: 600px) {
   .profil-page {
     img {
@@ -20,12 +100,9 @@
 }
 
 // ******** Media query page d'acceuil ********
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 1000px) {
   .acceuil-page {
     &__navbar {
-      justify-content: space-around;
-      height: auto;
-      padding: 0;
       &__logo {
         img {
           height: 70px;
@@ -78,6 +155,9 @@
       }
     }
     &__all-post {
+      grid-template-columns: 1fr;
+
+      gap: 10px;
       &__post {
         width: 95%;
         margin-bottom: 10px;
