@@ -237,7 +237,7 @@ const Acceuil = () => {
           >
             <div className="acceuil-page__form-container-create__form-new-post__form-text">
               <label htmlFor="message">Synopsis, </label>
-              <textarea name="text" id="message" />
+              <textarea name="text" id="message" maxlength="500" />
             </div>
             <div className="acceuil-page__form-container-create__form-new-post__form-file">
               <label
@@ -323,6 +323,7 @@ const Acceuil = () => {
                             type="text"
                             name="text"
                             id="message-update"
+                            maxlength="585"
                           />
                         </div>
                         <div className="acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file">

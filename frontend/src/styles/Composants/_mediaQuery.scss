@@ -1,5 +1,5 @@
 //******** Media query page connection / inscription : ********
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1850px) {
   .acceuil-page {
     &__navbar {
       &__logo {
@@ -100,7 +100,7 @@
 }
 
 // ******** Media query page d'acceuil ********
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1280px) {
   .acceuil-page {
     &__navbar {
       &__logo {
