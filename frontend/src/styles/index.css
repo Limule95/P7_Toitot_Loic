@@ -3,6 +3,11 @@ body {
   font-family: "Aboreto", cursive;
   line-height: 1.4rem;
   margin: 0;
+  padding: 0;
+  background: url("https://wallpaperaccess.com/full/2984122.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .profil-page {
@@ -97,59 +102,95 @@ body {
   align-items: stretch;
   justify-content: space-between;
 }
-.acceuil-page__navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.acceuil-page header {
   position: fixed;
-  height: 100px;
-  width: 100%;
-  z-index: 10;
-  background-color: white;
-  box-shadow: 0 0 10px 3px #fd2d01, 0 0 14px 5px #ffd7d7;
+  height: 100%;
+  z-index: 1;
 }
-.acceuil-page__navbar__logo img {
-  width: 300px;
-  height: 90px;
-  width: 100%;
-  box-sizing: border-box;
+.acceuil-page .menu {
+  width: 120px;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
+  border-right: 2px solid rgba(255, 255, 255, 0.09);
+  transition: 0.4s ease-in-out;
 }
-.acceuil-page__navbar__navbar-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 30px;
-}
-.acceuil-page__navbar__navbar-btn__btn-logout {
-  display: flex;
-  align-items: center;
-  outline: none;
-  border-radius: 15px;
-  border: none;
-  font-family: "Aboreto", cursive;
-  font-size: 1rem;
-  background: #ffd7d7;
-  color: black;
+.acceuil-page .menu__toggle {
   cursor: pointer;
-  margin: 0;
-  height: 50px;
-  transition: all 500ms ease;
-  padding: 15px;
+  position: absolute;
+  color: #fff;
+  top: 180px;
+  right: -20px;
+  font-size: 38px;
+  line-height: 50%;
+  text-align: center;
+  border-radius: 50%;
+  padding: 2px 0 2px 2px;
+  background: linear-gradient(90deg, transparent 50%, rgba(10, 10, 10, 0.65) 50%);
 }
-.acceuil-page__navbar__navbar-btn__btn-logout:focus, .acceuil-page__navbar__navbar-btn__btn-logout:hover {
-  border: 3px solid #fd2d01;
-  background: #fd2d01;
-  scale: 1.1;
-  transition: all 500ms ease-out;
+.acceuil-page .menu__toggle i {
+  transition: 0.4s linear;
 }
-.acceuil-page__navbar__navbar-btn__btn-logout h1 {
-  font-size: 15px;
+.acceuil-page .menu__logo {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.acceuil-page__navbar__navbar-btn__btn-logout i {
-  margin-left: 10px;
-  margin-right: 10px;
+.acceuil-page .menu__logo img {
+  width: clamp(150px, 5vw, 250px);
+  transition: 0.4s;
+}
+.acceuil-page .menu__logo h3 {
+  color: #fff;
   font-size: 1.5em;
+  margin-top: 0;
+  padding: 5px;
+  font-variant: small-caps;
+  pointer-events: none;
+  text-align: center;
+}
+.acceuil-page .menu__nav {
+  height: 100%;
+}
+.acceuil-page .menu__nav__title {
+  color: #dadada;
+  margin: 20px 0 10px;
+  pointer-events: none;
+}
+.acceuil-page .menu__nav ul {
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.acceuil-page .menu__nav__item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 4px;
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  margin: 8px 0;
+  color: #fff;
+  transition: 0.3s;
+}
+.acceuil-page .menu__nav__item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.acceuil-page .menu__nav__item i {
+  font-size: 26px;
+}
+.acceuil-page .menu__nav__item span {
+  font-size: 18px;
+  margin-left: 8px;
+  pointer-events: none;
+  opacity: 0;
 }
 .acceuil-page__form-container-create {
   margin-top: 100px;

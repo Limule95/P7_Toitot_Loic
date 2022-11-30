@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/MASTERmanga.png";
 
 const Acceuil = () => {
   // recuperation de l'id et token de la personne connecté
@@ -162,12 +162,12 @@ const Acceuil = () => {
     <>
       <div className="acceuil-page">
         {/* ************  Nav Bar ************************* */}
-        <div className="acceuil-page__navbar">
-          {/* ************  Nav Bar - IMG logo ************************* */}
+        {/* <div className="acceuil-page__navbar">
+
           <div className="acceuil-page__navbar__logo">
             <img src={logo} alt="logo Groupomania" className="logo-site" />
           </div>
-          {/* ************  Nav Bar  - BTN Logout************************* */}
+
           <div className="acceuil-page__navbar__navbar-btn">
             <button
               className="acceuil-page__navbar__navbar-btn__btn-logout"
@@ -177,7 +177,70 @@ const Acceuil = () => {
               <i className="fa-solid fa-right-from-bracket"></i>
             </button>
           </div>
+        </div> */}
+        {/* ************************HEADER FINAL************************* */}
+        <header>
+        <div className="menu">
+
+            <div className="menu__toggle">
+                <i className="bx bx-chevron-right"></i>
+            </div>
+
+            <div className="menu__logo">
+                <img src={logo} alt="logo Groupomania" className="logo-site" />
+                <h3>Uzumaki Naruto</h3>
+            </div>
+
+            <nav className="menu__nav">
+                <div className="menu__nav__title">
+                    Management
+                </div>
+
+                <ul>
+                    <li className="menu__nav__item">
+                        <i className="bx bxs-dashboard"></i>
+                        <span>Home</span>
+                    </li>
+                    <li className="menu__nav__item">
+                        <i className='bx bxs-wallet'></i>
+                        <span>Wallet</span>
+                    </li>
+                    <li className="menu__nav__item">
+                        <i className='bx bxs-basket'></i>
+                        <span>Basket</span>
+                    </li>
+                    <li className="menu__nav__item">
+                        <i className='bx bxs-bell'></i>
+                        <span>Notifications</span>
+                    </li>
+                    <li className="menu__nav__item">
+                        <i className='bx bxs-user-rectangle'></i>
+                        <span>User</span>
+                    </li>
+                    <li className="menu__nav__item">
+                        <i className='bx bx-cog'></i>
+                        <span>Settings</span>
+                    </li>
+                </ul>
+
+            
+                <div className="menu__nav__title">
+                    Supports
+                </div>
+
+                <ul>
+                    <li className="menu__nav__item">
+                        <i className="bx bxs-help-circle"></i>
+                        <span>Get Help</span>
+                    </li>
+                    <li className="menu__nav__item">
+                        <i className='bx bxs-message-dots'></i>
+                        <span>Send Feedback</span>
+                    </li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
         {/* ************  Creation de Post ************************* */}
         {(user.isAuthor === true || user.isAdmin === true) && (
@@ -310,6 +373,7 @@ const Acceuil = () => {
           ))}
         </div>
       </div>
+
     </>
   );
 };
