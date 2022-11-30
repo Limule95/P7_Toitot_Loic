@@ -7,12 +7,22 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [pseudo, setPseudo] = useState("");
+  const [isAuthor, setIsAuthor] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  
+  const handleChange = () => {
+    setIsAuthor(!isAuthor);
+  };
+
 
   const handleLogin = (e) => {
     e.preventDefault();
     const emailError = document.querySelector(".email.error");
     const passwordError = document.querySelector(".password.error");
     const pseudoError = document.querySelector(".pseudo.error");
+    
 
     // Toast est une popUp qui s'activera a la création d'un compte pour signifier que le compte a bien était crée
     toast.success("🦄 Compte crée avec SUCCES!!", {
@@ -44,8 +54,11 @@ const SignUpForm = () => {
       },
       data: {
         pseudo,
+        firstName,
+        lastName,
         email,
         password,
+        isAuthor,
       },
     })
       .then((res) => {
@@ -88,7 +101,30 @@ const SignUpForm = () => {
           value={pseudo}
         />
         <div className="pseudo error"></div>
+        <br />
 
+          <label htmlFor="firstName">Prénom</label>
+        <br />
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        />
+        <div className="pseudo error"></div>
+        <br />
+
+        <label htmlFor="lastName">Nom</label>
+        <br />
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
+        />
+        <div className="pseudo error"></div>
         <br />
 
         <label htmlFor="email">Email</label>
@@ -114,6 +150,12 @@ const SignUpForm = () => {
           value={password}
         />
         <div className="password error"></div>
+        <br />
+        <label htmlFor="isAuthor">Si vous êtes un auteur, cochez cette case :</label>
+        <br />
+        <input type="checkbox" name="isAuthor" id="isAuthor" checked={isAuthor} onChange={handleChange} 
+        value={isAuthor}/>
+        <br />
         <br />
         <button type="submit">S'inscrire</button>
       </form>
