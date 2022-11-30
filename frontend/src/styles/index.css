@@ -335,6 +335,7 @@ body {
 }
 .acceuil-page__all-post__post__post-info__box-text__post-text {
   padding: 0 10px;
+  height: 210px;
   margin: 5px 0;
 }
 .acceuil-page__all-post__post__post-info__box-img {
