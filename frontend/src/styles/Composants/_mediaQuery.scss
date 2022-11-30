@@ -1,0 +1,206 @@
+//******** Media query page connection / inscription : ********
+@media screen and (max-width: 600px) {
+  .profil-page {
+    img {
+      width: 80%;
+    }
+    &__log-container {
+      &__connection-form {
+        min-width: auto;
+        &__form-container {
+          flex-direction: column;
+
+          ul {
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ******** Media query page d'acceuil ********
+@media screen and (max-width: 530px) {
+  .acceuil-page {
+    &__navbar {
+      justify-content: space-around;
+      height: auto;
+      padding: 0;
+      &__logo {
+        img {
+          height: 70px;
+        }
+      }
+      &__navbar-btn {
+        padding: 0;
+        &__btn-logout {
+          padding: 15px;
+          height: 25px;
+          h1 {
+            display: none;
+          }
+          i {
+            font-size: 1.1em;
+          }
+        }
+      }
+    }
+    &__form-container-create {
+      margin-top: 70px;
+      padding: 15px;
+      p {
+        margin-top: 10px;
+        font-size: 15px;
+      }
+      &__form-new-post {
+        flex-direction: column;
+        gap: 0px;
+        font-size: 15px;
+        &__form-text {
+          align-items: center;
+          height: 100px;
+          color: white;
+          label {
+            margin-bottom: 10px;
+          }
+          textarea {
+            font-size: 15px;
+            width: 100%;
+          }
+        }
+        &__form-file {
+          height: 70px;
+        }
+        &__form-btn-post {
+          height: 25px;
+          transition: all 500ms ease;
+        }
+      }
+    }
+    &__all-post {
+      &__post {
+        width: 95%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        &__post-info {
+          &__box-text {
+            font-size: 15px;
+          }
+          &__box-img {
+            img {
+              margin: 10px;
+              width: 95%;
+            }
+          }
+          &__box-event-interact {
+            &__box-likes {
+              margin: 10px;
+            }
+            &__box-update-modal {
+              margin: 15px;
+              button {
+                height: 25px;
+              }
+            }
+          }
+        }
+        &__modal {
+          &__interact {
+            padding: 25px;
+            gap: 0px;
+            &__form-container-update {
+              &__form-update-post {
+                gap: 0;
+                font-size: 15px;
+                &__form-text {
+                  align-items: center;
+                  textarea {
+                    font-size: 15px;
+                  }
+                }
+                &__form-file {
+                  height: 50px;
+                }
+                &__form-btn-update {
+                  height: 25px;
+                }
+              }
+            }
+
+            &__delete-post {
+              height: 25px;
+              i {
+                font-size: 1.2em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .acceuil-page {
+    &__form-container-create {
+      p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+      &__form-new-post {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 17px;
+        &__form-text {
+          align-items: center;
+          height: 100px;
+          color: white;
+          label {
+            margin-bottom: 10px;
+          }
+          textarea {
+            font-size: 20px;
+            width: 100%;
+          }
+        }
+        &__form-file {
+          height: 70px;
+        }
+        &__form-btn-post {
+          height: 25px;
+          transition: all 500ms ease;
+        }
+      }
+    }
+    &__all-post {
+      &__post {
+        width: 95%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        &__post-info {
+          &__box-text {
+            font-size: 15px;
+          }
+          &__box-img {
+            img {
+              margin: 10px;
+              width: 95%;
+            }
+          }
+          &__box-event-interact {
+            &__box-likes {
+              margin: 10px;
+            }
+            &__box-update-modal {
+              margin: 15px;
+              button {
+                height: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

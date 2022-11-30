@@ -1,0 +1,93 @@
+.profil-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__log-container {
+    &__connection-form {
+      color: white;
+      background: $color-3;
+      border: none;
+      min-width: 500px;
+      text-align: center;
+      border-radius: 20px;
+      &__form-container {
+        display: flex;
+        padding: 20px;
+        justify-content: space-between;
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          padding: 0;
+          margin: 0 40px;
+          .active-btn {
+            background-color: $color-1;
+            list-style: none;
+            border-radius: 15px;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 500ms ease;
+            &:focus,
+            &:hover {
+              border: 3px solid $color-1;
+              scale: 1.1;
+              transition: all 500ms ease-out;
+            }
+          }
+          li:not(.active-btn) {
+            list-style: none;
+            border-radius: 15px;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 500ms ease;
+            &:focus,
+            &:hover {
+              scale: 1.1;
+              transition: all 500ms ease-out;
+            }
+          }
+        }
+        form {
+          input {
+            padding: 15px 20px;
+            margin: 5px;
+            font-size: 1.2rem;
+            font-family: "Aboreto", cursive;
+            border-radius: 15px;
+            list-style: none;
+            outline: none;
+            border: none;
+            transition: all 500ms ease;
+            &:focus,
+            &:hover {
+              border: 3px solid $color-1;
+              scale: 1.1;
+              transition: all 500ms ease-out;
+            }
+          }
+          button {
+            border-radius: 15px;
+            outline: none;
+            border: none;
+            font-family: $font-1;
+            font-size: 1rem;
+            background: white;
+            color: black;
+            cursor: pointer;
+            width: 150px;
+            margin: 0;
+            height: 50px;
+            transition: all 500ms ease;
+            &:focus,
+            &:hover {
+              border: 3px solid $color-1;
+              background: $color-1;
+              scale: 1.1;
+              transition: all 500ms ease-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}

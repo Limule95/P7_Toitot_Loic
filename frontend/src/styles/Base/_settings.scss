@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+$font-1: "Aboreto", cursive;
+$color-1: #fd2d01;
+$color-2: #ffd7d7;
+$color-3: #4e5166;
+$color-icon-like: rgb(6, 155, 6);
+$color-icon-unlike: #fd2d01;
+body {
+  font-family: $font-1;
+  line-height: 1.4rem;
+  margin: 0;
+}

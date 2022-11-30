@@ -1,0 +1,670 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+body {
+  font-family: "Aboreto", cursive;
+  line-height: 1.4rem;
+  margin: 0;
+}
+
+.profil-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profil-page__log-container__connection-form {
+  color: white;
+  background: #4e5166;
+  border: none;
+  min-width: 500px;
+  text-align: center;
+  border-radius: 20px;
+}
+.profil-page__log-container__connection-form__form-container {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+.profil-page__log-container__connection-form__form-container ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0 40px;
+}
+.profil-page__log-container__connection-form__form-container ul .active-btn {
+  background-color: #fd2d01;
+  list-style: none;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 500ms ease;
+}
+.profil-page__log-container__connection-form__form-container ul .active-btn:focus, .profil-page__log-container__connection-form__form-container ul .active-btn:hover {
+  border: 3px solid #fd2d01;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.profil-page__log-container__connection-form__form-container ul li:not(.active-btn) {
+  list-style: none;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 500ms ease;
+}
+.profil-page__log-container__connection-form__form-container ul li:not(.active-btn):focus, .profil-page__log-container__connection-form__form-container ul li:not(.active-btn):hover {
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.profil-page__log-container__connection-form__form-container form input {
+  padding: 15px 20px;
+  margin: 5px;
+  font-size: 1.2rem;
+  font-family: "Aboreto", cursive;
+  border-radius: 15px;
+  list-style: none;
+  outline: none;
+  border: none;
+  transition: all 500ms ease;
+}
+.profil-page__log-container__connection-form__form-container form input:focus, .profil-page__log-container__connection-form__form-container form input:hover {
+  border: 3px solid #fd2d01;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.profil-page__log-container__connection-form__form-container form button {
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  font-family: "Aboreto", cursive;
+  font-size: 1rem;
+  background: white;
+  color: black;
+  cursor: pointer;
+  width: 150px;
+  margin: 0;
+  height: 50px;
+  transition: all 500ms ease;
+}
+.profil-page__log-container__connection-form__form-container form button:focus, .profil-page__log-container__connection-form__form-container form button:hover {
+  border: 3px solid #fd2d01;
+  background: #fd2d01;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+
+.acceuil-page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.acceuil-page__navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  z-index: 10;
+  background-color: white;
+  box-shadow: 0 0 10px 3px #fd2d01, 0 0 14px 5px #ffd7d7;
+}
+.acceuil-page__navbar__logo img {
+  width: 300px;
+  height: 90px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.acceuil-page__navbar__navbar-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+}
+.acceuil-page__navbar__navbar-btn__btn-logout {
+  display: flex;
+  align-items: center;
+  outline: none;
+  border-radius: 15px;
+  border: none;
+  font-family: "Aboreto", cursive;
+  font-size: 1rem;
+  background: #ffd7d7;
+  color: black;
+  cursor: pointer;
+  margin: 0;
+  height: 50px;
+  transition: all 500ms ease;
+  padding: 15px;
+}
+.acceuil-page__navbar__navbar-btn__btn-logout:focus, .acceuil-page__navbar__navbar-btn__btn-logout:hover {
+  border: 3px solid #fd2d01;
+  background: #fd2d01;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__navbar__navbar-btn__btn-logout h1 {
+  font-size: 15px;
+}
+.acceuil-page__navbar__navbar-btn__btn-logout i {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+.acceuil-page__form-container-create {
+  margin-top: 100px;
+  background: #4e5166;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.4);
+}
+.acceuil-page__form-container-create p {
+  border-top: 1px solid #ffd7d7;
+  border-bottom: 1px solid #ffd7d7;
+  margin: 0;
+  font-size: 20px;
+  color: white;
+}
+.acceuil-page__form-container-create__form-new-post {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+  font-size: 20px;
+  width: 100%;
+  justify-content: center;
+}
+.acceuil-page__form-container-create__form-new-post__form-text {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  color: white;
+}
+.acceuil-page__form-container-create__form-new-post__form-text label {
+  margin-bottom: 15px;
+}
+.acceuil-page__form-container-create__form-new-post__form-text textarea {
+  font-size: 20px;
+  font-family: "Aboreto", cursive;
+  background: white;
+  width: 250px;
+  padding: 10px;
+  outline: none;
+  border-radius: 15px;
+  border: none;
+  transition: all 500ms ease;
+}
+.acceuil-page__form-container-create__form-new-post__form-text textarea:focus, .acceuil-page__form-container-create__form-new-post__form-text textarea:hover {
+  border: 3px solid #fd2d01;
+  background-color: #ffd7d7;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__form-container-create__form-new-post__form-file {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: center;
+}
+.acceuil-page__form-container-create__form-new-post__form-file__file {
+  cursor: pointer;
+  margin-bottom: 15px;
+  color: white;
+  transition: all 500ms ease;
+}
+.acceuil-page__form-container-create__form-new-post__form-file__file:focus, .acceuil-page__form-container-create__form-new-post__form-file__file:hover {
+  border: 3px solid #fd2d01;
+  border-radius: 15px;
+  padding: 5px;
+  color: #ffd7d7;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__form-container-create__form-new-post__form-file__file i {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+.acceuil-page__form-container-create__form-new-post__form-file__file input {
+  display: none;
+}
+.acceuil-page__form-container-create__form-new-post__form-btn-post {
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  font-family: "Aboreto", cursive;
+  font-size: 1rem;
+  background: white;
+  color: black;
+  cursor: pointer;
+  width: 150px;
+  margin: 0;
+  height: 50px;
+  transition: all 500ms ease;
+}
+.acceuil-page__form-container-create__form-new-post__form-btn-post:focus, .acceuil-page__form-container-create__form-new-post__form-btn-post:hover {
+  border: 3px solid #fd2d01;
+  background: #ffd7d7;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__all-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.acceuil-page__all-post__post {
+  width: 70%;
+  border-radius: 15px;
+  background: #4e5166;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.acceuil-page__all-post__post__post-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+.acceuil-page__all-post__post__post-info__box-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 17px;
+}
+.acceuil-page__all-post__post__post-info__box-text__post-pseudo {
+  padding: 10px;
+  font-size: 17px;
+}
+.acceuil-page__all-post__post__post-info__box-text__post-text {
+  padding: 10px;
+}
+.acceuil-page__all-post__post__post-info__box-img {
+  display: flex;
+  justify-content: center;
+}
+.acceuil-page__all-post__post__post-info__box-img img {
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 30px 30px 30px 30px;
+  margin: 20px;
+  width: 90%;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-likes {
+  display: flex;
+  margin: 15px;
+  justify-content: center;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-like {
+  background: white;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 20px 0px;
+  transition: all 500ms;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-like i {
+  color: rgb(6, 155, 6);
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-like:focus, .acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-like:hover {
+  border: 3px solid #fd2d01;
+  scale: 1.1;
+  box-shadow: 0px 0px 10px 10px rgba(187, 187, 187, 0.4);
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-unlike {
+  background: white;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 0px 20px;
+  transition: all 500ms;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-unlike i {
+  color: #fd2d01;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-unlike:focus, .acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-unlike:hover {
+  border: 3px solid #fd2d01;
+  box-shadow: 0px 0px 10px 10px rgba(187, 187, 187, 0.4);
+  scale: 1.1;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal {
+  margin: 15px;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button {
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  font-family: "Aboreto", cursive;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  transition: all 500ms ease;
+}
+.acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button:focus, .acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button:hover {
+  border: 3px solid #fd2d01;
+  background: #ffd7d7;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__all-post__post__modal {
+  background: rgba(49, 49, 49, 0.61);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.acceuil-page__all-post__post__modal__interact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #4e5166;
+  padding: 50px;
+  gap: 20px;
+  border-radius: 15px;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update {
+  padding: 20px;
+  height: 80%;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  color: white;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text label {
+  margin-bottom: 15px;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea {
+  font-size: 20px;
+  font-family: "Aboreto", cursive;
+  background: white;
+  width: 250px;
+  padding: 10px;
+  outline: none;
+  border-radius: 15px;
+  border: none;
+  transition: all 500ms ease;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea:hover {
+  background-color: #ffd7d7;
+  border: 3px solid #fd2d01;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: center;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label {
+  cursor: pointer;
+  margin-bottom: 15px;
+  color: white;
+  transition: all 500ms ease;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label i {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label input {
+  display: none;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label:hover {
+  border: 3px solid #fd2d01;
+  border-radius: 15px;
+  padding: 5px;
+  color: #ffd7d7;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update {
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  font-family: "Aboreto", cursive;
+  font-size: 1rem;
+  background: white;
+  color: black;
+  cursor: pointer;
+  width: 150px;
+  margin: 0;
+  height: 50px;
+  transition: all 500ms ease;
+}
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update:hover {
+  border: 3px solid #fd2d01;
+  background: #ffd7d7;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__all-post__post__modal__interact__delete-post {
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  font-family: "Aboreto", cursive;
+  font-size: 1rem;
+  background: white;
+  color: black;
+  cursor: pointer;
+  width: 150px;
+  margin: 0;
+  height: 50px;
+  transition: all 500ms ease;
+}
+.acceuil-page__all-post__post__modal__interact__delete-post:focus, .acceuil-page__all-post__post__modal__interact__delete-post:hover {
+  border: 3px solid #fd2d01;
+  background: #ffd7d7;
+  scale: 1.1;
+  transition: all 500ms ease-out;
+}
+.acceuil-page__all-post__post__modal__interact__delete-post i {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 600px) {
+  .profil-page img {
+    width: 80%;
+  }
+  .profil-page__log-container__connection-form {
+    min-width: auto;
+  }
+  .profil-page__log-container__connection-form__form-container {
+    flex-direction: column;
+  }
+  .profil-page__log-container__connection-form__form-container ul {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .acceuil-page__navbar {
+    justify-content: space-around;
+    height: auto;
+    padding: 0;
+  }
+  .acceuil-page__navbar__logo img {
+    height: 70px;
+  }
+  .acceuil-page__navbar__navbar-btn {
+    padding: 0;
+  }
+  .acceuil-page__navbar__navbar-btn__btn-logout {
+    padding: 15px;
+    height: 25px;
+  }
+  .acceuil-page__navbar__navbar-btn__btn-logout h1 {
+    display: none;
+  }
+  .acceuil-page__navbar__navbar-btn__btn-logout i {
+    font-size: 1.1em;
+  }
+  .acceuil-page__form-container-create {
+    margin-top: 70px;
+    padding: 15px;
+  }
+  .acceuil-page__form-container-create p {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+  .acceuil-page__form-container-create__form-new-post {
+    flex-direction: column;
+    gap: 0px;
+    font-size: 15px;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-text {
+    align-items: center;
+    height: 100px;
+    color: white;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-text label {
+    margin-bottom: 10px;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-text textarea {
+    font-size: 15px;
+    width: 100%;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-file {
+    height: 70px;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-btn-post {
+    height: 25px;
+    transition: all 500ms ease;
+  }
+  .acceuil-page__all-post__post {
+    width: 95%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .acceuil-page__all-post__post__post-info__box-text {
+    font-size: 15px;
+  }
+  .acceuil-page__all-post__post__post-info__box-img img {
+    margin: 10px;
+    width: 95%;
+  }
+  .acceuil-page__all-post__post__post-info__box-event-interact__box-likes {
+    margin: 10px;
+  }
+  .acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal {
+    margin: 15px;
+  }
+  .acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button {
+    height: 25px;
+  }
+  .acceuil-page__all-post__post__modal__interact {
+    padding: 25px;
+    gap: 0px;
+  }
+  .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post {
+    gap: 0;
+    font-size: 15px;
+  }
+  .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text {
+    align-items: center;
+  }
+  .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea {
+    font-size: 15px;
+  }
+  .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file {
+    height: 50px;
+  }
+  .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update {
+    height: 25px;
+  }
+  .acceuil-page__all-post__post__modal__interact__delete-post {
+    height: 25px;
+  }
+  .acceuil-page__all-post__post__modal__interact__delete-post i {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 850px) {
+  .acceuil-page__form-container-create p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .acceuil-page__form-container-create__form-new-post {
+    flex-direction: column;
+    gap: 15px;
+    font-size: 17px;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-text {
+    align-items: center;
+    height: 100px;
+    color: white;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-text label {
+    margin-bottom: 10px;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-text textarea {
+    font-size: 20px;
+    width: 100%;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-file {
+    height: 70px;
+  }
+  .acceuil-page__form-container-create__form-new-post__form-btn-post {
+    height: 25px;
+    transition: all 500ms ease;
+  }
+  .acceuil-page__all-post__post {
+    width: 95%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .acceuil-page__all-post__post__post-info__box-text {
+    font-size: 15px;
+  }
+  .acceuil-page__all-post__post__post-info__box-img img {
+    margin: 10px;
+    width: 95%;
+  }
+  .acceuil-page__all-post__post__post-info__box-event-interact__box-likes {
+    margin: 10px;
+  }
+  .acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal {
+    margin: 15px;
+  }
+  .acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button {
+    height: 25px;
+  }
+}/*# sourceMappingURL=index.css.map */

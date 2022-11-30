@@ -1,0 +1,16 @@
+// ****************** PAGE D'ACCEUIL ******************
+.acceuil-page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+
+  // import composant nav-bar
+  @import "../Composants/navBar";
+
+  // import composant create-post
+  @import "../Composants/createPost";
+
+  // import composant all-post
+  @import "../Composants/allPost";
+}

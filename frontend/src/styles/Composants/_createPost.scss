@@ -1,0 +1,104 @@
+&__form-container-create {
+  margin-top: 100px;
+  background: $color-3;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.4);
+  p {
+    border-top: 1px solid #ffd7d7;
+    border-bottom: 1px solid #ffd7d7;
+    margin: 0;
+    font-size: 20px;
+    color: white;
+  }
+  &__form-new-post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    font-size: 20px;
+    width: 100%;
+    justify-content: center;
+
+    &__form-text {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      color: white;
+      label {
+        margin-bottom: 15px;
+      }
+      textarea {
+        font-size: 20px;
+        font-family: $font-1;
+        background: white;
+        width: 250px;
+        padding: 10px;
+        outline: none;
+        border-radius: 15px;
+        border: none;
+        transition: all 500ms ease;
+        &:focus,
+        &:hover {
+          border: 3px solid $color-1;
+          background-color: $color-2;
+          scale: 1.1;
+          transition: all 500ms ease-out;
+        }
+      }
+    }
+    &__form-file {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      justify-content: center;
+      &__file {
+        cursor: pointer;
+        margin-bottom: 15px;
+        color: white;
+        transition: all 500ms ease;
+        &:focus,
+        &:hover {
+          border: 3px solid $color-1;
+          border-radius: 15px;
+          padding: 5px;
+          color: $color-2;
+          scale: 1.1;
+          transition: all 500ms ease-out;
+        }
+        i {
+          margin-left: 10px;
+          margin-right: 10px;
+          font-size: 1.5em;
+        }
+        input {
+          display: none;
+        }
+      }
+    }
+    &__form-btn-post {
+      border-radius: 15px;
+      outline: none;
+      border: none;
+      font-family: $font-1;
+      font-size: 1rem;
+      background: white;
+      color: black;
+      cursor: pointer;
+      width: 150px;
+      margin: 0;
+      height: 50px;
+      transition: all 500ms ease;
+      &:focus,
+      &:hover {
+        border: 3px solid $color-1;
+        background: $color-2;
+        scale: 1.1;
+        transition: all 500ms ease-out;
+      }
+    }
+  }
+}
