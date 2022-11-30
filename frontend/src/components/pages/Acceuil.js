@@ -252,7 +252,7 @@ const Acceuil = () => {
                       <button
                         onClick={toggleFormAcces}
                         className="btn-modal"
-                        id={post._id}
+                        id={post._id} 
                       >
                         Modifier
                       </button>
