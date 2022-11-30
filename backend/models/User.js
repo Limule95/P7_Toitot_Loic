@@ -9,6 +9,9 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true, max: 100, minlenght: 6 },
   pseudo: { type: String, required: true, unique: true },
   likes: { type: [String] },
+  isAuthor: { type: Boolean, default: false },
+  bio: { type: String, max: 500},
+  image: { type: String},
   isAdmin: { type: Boolean, default: false },
 });
 
