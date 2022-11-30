@@ -258,7 +258,7 @@ const Acceuil = () => {
             </button>
           </form>
         </div>
-                    )}
+                    )} 
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
           {datas.slice(0, 5).map((post) => (
