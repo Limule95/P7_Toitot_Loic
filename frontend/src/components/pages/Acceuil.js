@@ -290,7 +290,13 @@ const Acceuil = () => {
 
                 {/* ************  Interaction  ************ */}
                 <div className="acceuil-page__all-post__post__post-info__box-event-interact">
-                  <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">STARS</div>
+                  <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
 
                   <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
                     {(user._id === post.userId || user.isAdmin === true) && (

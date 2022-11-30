@@ -58,29 +58,19 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        &__box-likes {
+
+        &__rate {
+          height: 80px;
+          width: 60%;
           display: flex;
-          margin: 15px;
-          justify-content: center;
-          .btn-like {
-            background: white;
-            font-size: 20px;
-            cursor: pointer;
-            width: 100px;
-            margin-right: 5px;
-            border: none;
-            border-radius: 20px 0px;
-            transition: all 500ms;
-            i {
-              color: $color-icon-like;
-            }
-            &:focus,
-            &:hover {
-              border: 3px solid $color-1;
-              scale: 1.1;
-              box-shadow: 0px 0px 10px 10px rgba(187, 187, 187, 0.4);
-            }
+          justify-content:center;
+          align-items: center;
+          
+          i{
+            font-size: clamp(2.5em, 3vw, 4em);
           }
+        }
+
           .btn-unlike {
             background: white;
             font-size: 20px;
@@ -139,6 +129,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
       &__interact {
         display: flex;
         flex-direction: column;
@@ -147,9 +138,11 @@
         padding: 50px;
         gap: 20px;
         border-radius: 15px;
+
         &__form-container-update {
           padding: 20px;
           height: 80%;
+
           &__form-update-post {
             display: flex;
             flex-direction: column;
@@ -269,4 +262,4 @@
       }
     }
   }
-}
+

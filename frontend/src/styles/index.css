@@ -355,30 +355,17 @@ body {
   justify-content: center;
   align-items: center;
 }
-.acceuil-page__all-post__post__post-info__box-event-interact__box-likes {
+.acceuil-page__all-post__post__post-info__box-event-interact__rate {
+  height: 80px;
+  width: 60%;
   display: flex;
-  margin: 15px;
   justify-content: center;
+  align-items: center;
 }
-.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-like {
-  background: white;
-  font-size: 20px;
-  cursor: pointer;
-  width: 100px;
-  margin-right: 5px;
-  border: none;
-  border-radius: 20px 0px;
-  transition: all 500ms;
+.acceuil-page__all-post__post__post-info__box-event-interact__rate i {
+  font-size: clamp(2.5em, 3vw, 4em);
 }
-.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-like i {
-  color: rgb(6, 155, 6);
-}
-.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-like:focus, .acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-like:hover {
-  border: 3px solid #fd2d01;
-  scale: 1.1;
-  box-shadow: 0px 0px 10px 10px rgba(187, 187, 187, 0.4);
-}
-.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-unlike {
+.acceuil-page__all-post__post__post-info__box-event-interact .btn-unlike {
   background: white;
   font-size: 20px;
   cursor: pointer;
@@ -388,18 +375,18 @@ body {
   border-radius: 0px 20px;
   transition: all 500ms;
 }
-.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-unlike i {
+.acceuil-page__all-post__post__post-info__box-event-interact .btn-unlike i {
   color: #fd2d01;
 }
-.acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-unlike:focus, .acceuil-page__all-post__post__post-info__box-event-interact__box-likes .btn-unlike:hover {
+.acceuil-page__all-post__post__post-info__box-event-interact .btn-unlike:focus, .acceuil-page__all-post__post__post-info__box-event-interact .btn-unlike:hover {
   border: 3px solid #fd2d01;
   box-shadow: 0px 0px 10px 10px rgba(187, 187, 187, 0.4);
   scale: 1.1;
 }
-.acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal {
+.acceuil-page__all-post__post__post-info__box-update-modal {
   margin: 15px;
 }
-.acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button {
+.acceuil-page__all-post__post__post-info__box-update-modal button {
   border-radius: 15px;
   outline: none;
   border: none;
@@ -411,13 +398,13 @@ body {
   height: 50px;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button:focus, .acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button:hover {
+.acceuil-page__all-post__post__post-info__box-update-modal button:focus, .acceuil-page__all-post__post__post-info__box-update-modal button:hover {
   border: 3px solid #fd2d01;
   background: #ffd7d7;
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__post__modal {
+.acceuil-page__all-post__modal {
   background: rgba(49, 49, 49, 0.61);
   width: 100%;
   height: 100vh;
@@ -431,7 +418,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-.acceuil-page__all-post__post__modal__interact {
+.acceuil-page__all-post__modal__interact {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -440,11 +427,11 @@ body {
   gap: 20px;
   border-radius: 15px;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update {
+.acceuil-page__all-post__modal__interact__form-container-update {
   padding: 20px;
   height: 80%;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -454,16 +441,16 @@ body {
   width: 100%;
   height: 100%;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text {
   display: flex;
   flex-direction: column;
   height: 100px;
   color: white;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text label {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text label {
   margin-bottom: 15px;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text textarea {
   font-size: 20px;
   font-family: "Aboreto", cursive;
   background: white;
@@ -474,33 +461,33 @@ body {
   border: none;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea:hover {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text textarea:focus, .acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text textarea:hover {
   background-color: #ffd7d7;
   border: 3px solid #fd2d01;
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file {
   display: flex;
   flex-direction: column;
   height: 100px;
   justify-content: center;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label {
   cursor: pointer;
   margin-bottom: 15px;
   color: white;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label i {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label i {
   margin-left: 10px;
   margin-right: 10px;
   font-size: 1.5em;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label input {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label input {
   display: none;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label:hover {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label:focus, .acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label:hover {
   border: 3px solid #fd2d01;
   border-radius: 15px;
   padding: 5px;
@@ -508,7 +495,7 @@ body {
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-btn-update {
   border-radius: 15px;
   outline: none;
   border: none;
@@ -522,13 +509,13 @@ body {
   height: 50px;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update:hover {
+.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-btn-update:focus, .acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-btn-update:hover {
   border: 3px solid #fd2d01;
   background: #ffd7d7;
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__post__modal__interact__delete-post {
+.acceuil-page__all-post__modal__interact__delete-post {
   border-radius: 15px;
   outline: none;
   border: none;
@@ -542,13 +529,13 @@ body {
   height: 50px;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__post__modal__interact__delete-post:focus, .acceuil-page__all-post__post__modal__interact__delete-post:hover {
+.acceuil-page__all-post__modal__interact__delete-post:focus, .acceuil-page__all-post__modal__interact__delete-post:hover {
   border: 3px solid #fd2d01;
   background: #ffd7d7;
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__post__modal__interact__delete-post i {
+.acceuil-page__all-post__modal__interact__delete-post i {
   margin-left: 10px;
   margin-right: 10px;
   font-size: 1.5em;
