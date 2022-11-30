@@ -161,23 +161,6 @@ const Acceuil = () => {
   return (
     <>
       <div className="acceuil-page">
-        {/* ************  Nav Bar ************************* */}
-        {/* <div className="acceuil-page__navbar">
-
-          <div className="acceuil-page__navbar__logo">
-            <img src={logo} alt="logo Groupomania" className="logo-site" />
-          </div>
-
-          <div className="acceuil-page__navbar__navbar-btn">
-            <button
-              className="acceuil-page__navbar__navbar-btn__btn-logout"
-              onClick={logOut}
-            >
-              <h1>Déconnection</h1>
-              <i className="fa-solid fa-right-from-bracket"></i>
-            </button>
-          </div>
-        </div> */}
         {/* ************************HEADER FINAL************************* */}
         <header>
         <div className="menu">
@@ -240,7 +223,7 @@ const Acceuil = () => {
                 </ul>
             </nav>
         </div>
-    </header>
+        </header>
 
         {/* ************  Creation de Post ************************* */}
         {(user.isAuthor === true || user.isAdmin === true) && (
@@ -278,7 +261,7 @@ const Acceuil = () => {
                     )}
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
-          {datas.map((post) => (
+          {datas.slice(0, 5).map((post) => (
             <div
               className="acceuil-page__all-post__post"
               target="e"
@@ -371,6 +354,10 @@ const Acceuil = () => {
               )}
             </div>
           ))}
+        </div>
+        {/****************** Les Mieux notés ************************* */}
+        <div className="acceuil-page__bests">
+
         </div>
       </div>
 
