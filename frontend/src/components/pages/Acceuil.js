@@ -257,7 +257,7 @@ const Acceuil = () => {
                         Modifier
                       </button>
                     )}
-                  </div>
+                  </div> 
                 </div>
               </div>
               {formAcces && (
