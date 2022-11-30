@@ -1,29 +1,39 @@
 &__all-post {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 150px 0 150px 150px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 900px;
+  gap: 20px;
 
   &__post {
-    width: 70%;
+
     border-radius: 15px;
     background: #4e5166;
     margin-bottom: 20px;
     margin-top: 20px;
+
     &__post-info {
       display: flex;
       flex-direction: column;
       align-items: center;
       color: white;
       position: relative;
+
       &__box-text {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
         font-size: 17px;
+
         &__post-pseudo {
+          text-align: center;
           padding: 10px;
           font-size: 17px;
+
+          &__auteur {
+            font-size: 2em;
+          }
         }
         &__post-text {
           padding: 10px;

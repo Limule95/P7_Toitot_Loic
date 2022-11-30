@@ -13,6 +13,7 @@ header {
     box-shadow: 0 8px 32px rgb(2, 4, 24);
     border-right: 2px solid rgba(255, 255, 255, .09);
     transition: .4s ease-in-out;
+    
 
     &__toggle {
         
@@ -37,24 +38,29 @@ header {
     }
 
     &__logo {
-          width: 100%;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+      width: 100%;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       img {
-        width: clamp(150px, 5vw, 250px);
+        width: clamp(120px, 5vw, 200px);
         transition: .4s;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        box-shadow: 0 8px 32px rgb(2, 4, 24);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 50%;
       }
       h3 {
-    color: #fff;
-    font-size: 1.5em;
-    margin-top: 0;
-    padding: 5px;
-    font-variant: small-caps;
-    pointer-events: none;
-    text-align: center;
+        color: #fff;
+        font-size: 1.5em;
+        margin-top: 0;
+        padding: 5px;
+        font-variant: small-caps;
+        pointer-events: none;
+        text-align: center;
       }
     }
 

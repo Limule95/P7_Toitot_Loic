@@ -171,7 +171,7 @@ const Acceuil = () => {
 
             <div className="menu__logo">
                 <img src={logo} alt="logo Groupomania" className="logo-site" />
-                <h3>Uzumaki Naruto</h3>
+                <h3>Master manga</h3>
             </div>
 
             <nav className="menu__nav">
@@ -276,7 +276,7 @@ const Acceuil = () => {
                 <div className="acceuil-page__all-post__post__post-info__box-text">
                   <div className="acceuil-page__all-post__post__post-info__box-text__post-pseudo">
                     <p>{post.pseudo}</p>
-                    <p>Auteur : {post.author}</p>
+                    <p className="acceuil-page__all-post__post__post-info__box-text__post-pseudo__auteur">Auteur : {post.author}</p>
                   </div>
                   <div className="acceuil-page__all-post__post__post-info__box-text__post-text">
                     <p>Résumé : {post.message}</p>
