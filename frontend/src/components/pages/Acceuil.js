@@ -180,7 +180,9 @@ const Acceuil = () => {
         </div>
 
         {/* ************  Creation de Post ************************* */}
-        <div className="acceuil-page__form-container-create">
+        {(user.isAuthor === true || user.isAdmin === true) && (
+            <div className="acceuil-page__form-container-create">
+           
           <p className="pseudo">Pseudo : {user.pseudo}</p>
           <form
             action=""
@@ -210,6 +212,8 @@ const Acceuil = () => {
             </button>
           </form>
         </div>
+                    )}
+        
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
           {datas.map((post) => (
