@@ -213,8 +213,6 @@ const Acceuil = () => {
           </form>
         </div>
                     )}
-                    
-        
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
           {datas.map((post) => (
