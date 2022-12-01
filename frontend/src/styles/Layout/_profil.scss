@@ -2,17 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 200px;
+
+  img {
+    width: clamp(150px, 15vw, 400px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    box-shadow: 0 8px 32px rgb(2, 4, 24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50%; 
+    margin: 20px 0px;
+  }
+
   &__log-container {
     &__connection-form {
+      font-size: clamp(1em, 2vw, 1.5em);
       color: white;
-      background: $color-3;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+      box-shadow: 0 8px 32px rgb(2, 4, 24);
       border: none;
       min-width: 500px;
       text-align: center;
       border-radius: 20px;
+
       &__form-container {
         display: flex;
-        padding: 20px;
+        padding: 20px; 
         justify-content: space-between;
         ul {
           display: flex;
@@ -21,17 +38,20 @@
           padding: 0;
           margin: 0 40px;
           .active-btn {
-            background-color: $color-1;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            box-shadow: 0 8px 32px rgb(2, 4, 24);
             list-style: none;
             border-radius: 15px;
             cursor: pointer;
-            padding: 10px;
             transition: all 500ms ease;
             &:focus,
             &:hover {
-              border: 3px solid $color-1;
-              scale: 1.1;
-              transition: all 500ms ease-out;
+              
+              scale: 1.05;
+              transition: all 200ms ease-out;
             }
           }
           li:not(.active-btn) {
@@ -42,12 +62,11 @@
             transition: all 500ms ease;
             &:focus,
             &:hover {
-              scale: 1.1;
-              transition: all 500ms ease-out;
             }
           }
         }
         form {
+          }
           input {
             padding: 15px 20px;
             margin: 5px;
@@ -60,9 +79,8 @@
             transition: all 500ms ease;
             &:focus,
             &:hover {
-              border: 3px solid $color-1;
-              scale: 1.1;
-              transition: all 500ms ease-out;
+              scale: 1.05;
+              transition: all 200ms ease-out;
             }
           }
           button {
@@ -70,9 +88,14 @@
             outline: none;
             border: none;
             font-family: $font-1;
-            font-size: 1rem;
-            background: white;
+            font-weight: bold;
+            font-size: clamp(1em, 2vw, 1.5em);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(250, 250, 250, 0.397), rgba(212, 212, 212, 0.253));
+            box-shadow: 0 8px 32px rgb(2, 4, 24);
             color: black;
+            text-shadow: 1px 1px 4px rgb(255, 255, 255);
             cursor: pointer;
             width: 150px;
             margin: 0;
@@ -80,8 +103,6 @@
             transition: all 500ms ease;
             &:focus,
             &:hover {
-              border: 3px solid $color-1;
-              background: $color-1;
               scale: 1.1;
               transition: all 500ms ease-out;
             }
@@ -90,4 +111,4 @@
       }
     }
   }
-}
+

@@ -14,10 +14,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 200px;
+}
+.profil-page img {
+  width: clamp(150px, 15vw, 400px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+  margin: 20px 0px;
 }
 .profil-page__log-container__connection-form {
+  font-size: clamp(1em, 2vw, 1.5em);
   color: white;
-  background: #4e5166;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
   border: none;
   min-width: 500px;
   text-align: center;
@@ -36,17 +50,19 @@ body {
   margin: 0 40px;
 }
 .profil-page__log-container__connection-form__form-container ul .active-btn {
-  background-color: #fd2d01;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
   list-style: none;
   border-radius: 15px;
   cursor: pointer;
-  padding: 10px;
   transition: all 500ms ease;
 }
 .profil-page__log-container__connection-form__form-container ul .active-btn:focus, .profil-page__log-container__connection-form__form-container ul .active-btn:hover {
-  border: 3px solid #fd2d01;
-  scale: 1.1;
-  transition: all 500ms ease-out;
+  scale: 1.05;
+  transition: all 200ms ease-out;
 }
 .profil-page__log-container__connection-form__form-container ul li:not(.active-btn) {
   list-style: none;
@@ -55,11 +71,7 @@ body {
   padding: 10px;
   transition: all 500ms ease;
 }
-.profil-page__log-container__connection-form__form-container ul li:not(.active-btn):focus, .profil-page__log-container__connection-form__form-container ul li:not(.active-btn):hover {
-  scale: 1.1;
-  transition: all 500ms ease-out;
-}
-.profil-page__log-container__connection-form__form-container form input {
+.profil-page__log-container__connection-form__form-container input {
   padding: 15px 20px;
   margin: 5px;
   font-size: 1.2rem;
@@ -70,28 +82,30 @@ body {
   border: none;
   transition: all 500ms ease;
 }
-.profil-page__log-container__connection-form__form-container form input:focus, .profil-page__log-container__connection-form__form-container form input:hover {
-  border: 3px solid #fd2d01;
-  scale: 1.1;
-  transition: all 500ms ease-out;
+.profil-page__log-container__connection-form__form-container input:focus, .profil-page__log-container__connection-form__form-container input:hover {
+  scale: 1.05;
+  transition: all 200ms ease-out;
 }
-.profil-page__log-container__connection-form__form-container form button {
+.profil-page__log-container__connection-form__form-container button {
   border-radius: 15px;
   outline: none;
   border: none;
   font-family: "Aboreto", cursive;
-  font-size: 1rem;
-  background: white;
+  font-weight: bold;
+  font-size: clamp(1em, 2vw, 1.5em);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(250, 250, 250, 0.397), rgba(212, 212, 212, 0.253));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
   color: black;
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
   cursor: pointer;
   width: 150px;
   margin: 0;
   height: 50px;
   transition: all 500ms ease;
 }
-.profil-page__log-container__connection-form__form-container form button:focus, .profil-page__log-container__connection-form__form-container form button:hover {
-  border: 3px solid #fd2d01;
-  background: #fd2d01;
+.profil-page__log-container__connection-form__form-container button:focus, .profil-page__log-container__connection-form__form-container button:hover {
   scale: 1.1;
   transition: all 500ms ease-out;
 }
