@@ -89,7 +89,7 @@
             border: none;
             font-family: $font-1;
             font-weight: bold;
-            font-size: clamp(1em, 2vw, 1.5em);
+            font-size: clamp(1.1em, 2vw, 1.2em);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             background: linear-gradient(135deg, rgba(250, 250, 250, 0.397), rgba(212, 212, 212, 0.253));

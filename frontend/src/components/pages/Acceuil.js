@@ -228,8 +228,13 @@ const Acceuil = () => {
         {/* ************  Creation de Post ************************* */}
         {(user.isAuthor === true || user.isAdmin === true) && (
             <div className="acceuil-page__form-container-create">
-           
-          <p className="pseudo">Pseudo : {user.pseudo}</p>
+
+              <div className="acceuil-page__form-container-create__content">
+                <h2 className="acceuil-page__form-container-create__content__pseudo">{user.pseudo}</h2>
+                <h2 className="acceuil-page__form-container-create__content__pseudo">{user.pseudo}</h2>
+              </div>
+
+              {/* <p className="pseudo">Pseudo : {user.pseudo}</p> */}
           <form
             action=""
             className="acceuil-page__form-container-create__form-new-post"
@@ -239,23 +244,30 @@ const Acceuil = () => {
               <label htmlFor="message">Synopsis, </label>
               <textarea name="text" id="message" maxlength="500" />
             </div>
+
             <div className="acceuil-page__form-container-create__form-new-post__form-file">
+              
               <label
                 htmlFor="file-create"
                 className="acceuil-page__form-container-create__form-new-post__form-file__file"
               >
-                Photo du
+
                 <i className="fa-solid fa-image"></i>
-                Tome !
+
                 <input type="file" name="file" id="file-create" />
+
               </label>
             </div>
+
             <button
               type="submit"
               className="acceuil-page__form-container-create__form-new-post__form-btn-post"
             >
-              Publier
+              <span class="material-icons-outlined">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+              </span>
             </button>
+
           </form>
         </div>
                     )} 

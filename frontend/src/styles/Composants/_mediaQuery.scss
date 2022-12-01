@@ -33,13 +33,15 @@
       }
     }
     &__all-post {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 0.4fr);
       grid-auto-rows: 800px;
+      gap: 50px;
       &__post {
         &__post-info {
           &__box-text {
           }
           &__box-img {
+            width: 80%;
             img {
             }
           }
@@ -124,7 +126,6 @@
     }
     &__form-container-create {
 
-      padding: 15px;
       p {
         margin-top: 10px;
         font-size: 15px;
