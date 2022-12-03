@@ -69,7 +69,7 @@ const Acceuil = () => {
       });
   }, [loading]);
 
-  // Function requette (POST) createPost
+  // Function requete (POST) createPost
   const handlePost = (e) => {
     e.preventDefault();
     let pseudo = user.pseudo;
@@ -229,12 +229,7 @@ const Acceuil = () => {
         {(user.isAuthor === true || user.isAdmin === true) && (
             <div className="acceuil-page__form-container-create">
 
-              <div className="acceuil-page__form-container-create__content">
-                <h2 className="acceuil-page__form-container-create__content__pseudo">{user.pseudo}</h2>
-                <h2 className="acceuil-page__form-container-create__content__pseudo">{user.pseudo}</h2>
-              </div>
-
-              {/* <p className="pseudo">Pseudo : {user.pseudo}</p> */}
+              <h2 className="acceuil-page__form-container-create__pseudo">{user.pseudo}</h2>
           <form
             action=""
             className="acceuil-page__form-container-create__form-new-post"
@@ -255,7 +250,7 @@ const Acceuil = () => {
                 <i className="fa-solid fa-image"></i>
 
                 <input type="file" name="file" id="file-create" />
-
+                  
               </label>
             </div>
 

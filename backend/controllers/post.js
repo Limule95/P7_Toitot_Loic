@@ -10,26 +10,22 @@ exports.createPost = (req, res) => {
     // On recupere la personne qui souhaite modifier le post
     // _id = l'id de l'user   ---   req.auth.userId = id du token decoder
     User.findOne({_id: req.auth.userId}).then((user) => {
-      const fname = user.firstName;
-          console.log(fname);
         if (user.isAuthor === true || user.isAdmin === true) {
-
-          const fname = user.firstName;
-          console.log(fname);
 
             const protocol = req.protocol;
             const host = req.get("host");
             const messageFild = req.body.message;
-            const authorName = user.firstName + " " + user.lastName
+            const authorName = user.firstName + " " + user.lastName;
 
-            // Si il y a un message mais pas de fichier
             if (messageFild !== "" && !req.file) { // On crée un nouveau post avec juste un message
                 const post = new Post({
                     userId: req.auth.userId, 
                     pseudo: req.body.pseudo,
                     author: authorName,
-                    message: req.body.message
-                });
+                    message: req.body.message,
+                    image: "https://i.pinimg.com/originals/46/91/27/469127ec4e81b9c90fc76de8630d7819.png",
+                    
+                }); 
                 post.save().then(() => {
                     res.status(201).json({message: "Post enregistré !"});
                 }).catch((error) => {
@@ -37,8 +33,8 @@ exports.createPost = (req, res) => {
                         message: "Vous devez ajouter un texte et une image" + error
                     });
                 });
-            }
-            // Si il y un message et un fichier else if (messageFild && req.file) { // On crée un nouveau post avec un message et une image
+            } else {
+              // Si il y un message et un fichier else if (messageFild && req.file) { // On crée un nouveau post avec un message et une image
             const post = new Post({
                     userId: req.auth.userId, 
                     pseudo: req.body.pseudo,
@@ -55,6 +51,8 @@ exports.createPost = (req, res) => {
                     message: "Vous devez ajouter un texte et une image" + error
                 });
             });
+            }
+            
         }
         else {
           res.status(401).json({message: "Not an Author or Admin"})
