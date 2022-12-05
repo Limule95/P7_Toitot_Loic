@@ -9,7 +9,7 @@ const postSchema = mongoose.Schema({
   message: { type: String, required: true, maxlength: 500 },
   image: { type: String },
   // rate est un array de toutes les valeurs selectionnées par les users
-  rate: {type: [Number]},
+  rate: {type: [Number], default: 0},
 });
 
 // On exporte postSchema

@@ -199,7 +199,7 @@ exports.ratePost = (req, res) => {
             // si post.rate = [] (=array vide)alors post.rate prend la valeur de choisie par l'user
             let lenght = post.rate.lenght;
 
-            // fonction numAverage 
+            // fonction numAverage qui renvoie la moyenne d'un array
             function numAverage(a) {
               var b = post.rate.length,
                   c = 0, i;
@@ -209,7 +209,7 @@ exports.ratePost = (req, res) => {
               return c/b;
             }
  
-          if  (post.rate = []) {
+          if  (post.rate = 0) {
             Post.updateOne(
                 { _id: req.params.id },
                 {

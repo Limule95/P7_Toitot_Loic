@@ -299,7 +299,7 @@ const Acceuil = () => {
 
                 {/* ************  Interaction  ************ */}
                 <div className="acceuil-page__all-post__post__post-info__note">
-                  <p>Note :{/*  {post.note}*/} </p> 
+                  <p>Note : {post.rate} </p> 
                 </div>
                 <div className="acceuil-page__all-post__post__post-info__box-event-interact">
                   <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">
