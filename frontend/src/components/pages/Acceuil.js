@@ -237,7 +237,7 @@ const Acceuil = () => {
           >
             <div className="acceuil-page__form-container-create__form-new-post__form-text">
               <label htmlFor="message">Synopsis, </label>
-              <textarea name="text" id="message" maxLength="585" />
+              <textarea name="text" id="message" maxLength="500" />
             </div>
 
             <div className="acceuil-page__form-container-create__form-new-post__form-file">
@@ -268,7 +268,7 @@ const Acceuil = () => {
                     )} 
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
-          
+
 
           {datas.slice(0, 5).map((post) => (
             <div
@@ -343,7 +343,7 @@ const Acceuil = () => {
                             type="text"
                             name="text"
                             id="message-update"
-                            maxLength="585"
+                            maxLength="500"
                           />
                         </div>
                         <div className="acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file">

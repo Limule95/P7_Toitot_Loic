@@ -8,6 +8,8 @@ const postSchema = mongoose.Schema({
   pseudo: { type: String, required: true },
   message: { type: String, required: true, maxlength: 500 },
   image: { type: String },
+  // rate est un array de toutes les valeurs selectionnées par les users
+  rate: {type: [Number]},
 });
 
 // On exporte postSchema

@@ -11,6 +11,8 @@ router.put("/:id", auth, multer, postCtrl.updatePost);
 router.delete("/:id", auth, postCtrl.deletePost);
 router.get("/", auth, postCtrl.getAllPost);
 router.get("/:id", auth, postCtrl.getOnePost);
+// route pour noter un post
+router.patch("/:id", auth,postCtrl.ratePost )
 
 // On export notre module "router"
 module.exports = router;

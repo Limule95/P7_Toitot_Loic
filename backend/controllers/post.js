@@ -191,4 +191,60 @@ exports.getAllPost = (req, res) => { // On récupère tous les posts
     Post.find().sort({_id: -1}).then((post) => res.status(200).json(post)).catch((error) => res.status(400).json({error}));
 };
 
+// Route pour noter un post****************
+exports.ratePost = (req, res) => {
+  User.findOne({_id: req.auth.userId}).then((user) => { //on vérifie que l'User existe dans la DB
+
+        Post.findOne({_id: req.params.id}).then((post) => { // On récupère le post grace a son ID
+            // si post.rate = [] (=array vide)alors post.rate prend la valeur de choisie par l'user
+            let lenght = post.rate.lenght;
+
+            // fonction numAverage 
+            function numAverage(a) {
+              var b = post.rate.length,
+                  c = 0, i;
+              for (i = 0; i < b; i++){
+                c += Number(a[i]);
+              }
+              return c/b;
+            }
+ 
+          if  (post.rate = []) {
+            Post.updateOne(
+                { _id: req.params.id },
+                {
+                  $push: {
+                    rate: req.body.rate,
+                  },
+                }
+              )
+              .then(() => {
+                  res.status(200).json({ message: "Mention envoyée!" });
+                })
+                .catch((error) => res.status(401).json({ error }));
+          }
+// si post.rate != 0 alors post.rate rajoute la valeur choisie par l'user a l'array et en fait la moyenne
+          if (post.rate != []) {
+            Post.updateOne(
+              { _id: req.params.id },
+              {
+                $push: {
+                  rate: req.body.rate,
+                },
+                $set: {
+                  rate: numAverage(),
+                }
+              }
+            )
+            .then(() => {
+              res.status(200).json({ message: "Mention envoyée!" });
+            })
+            .catch((err) => res.status(500).json(err));
+          }
+        }).catch((error) => {
+            res.status(400).json({error});
+        });
+    }).catch((err) => res.status(500).json(err));
+}
+
 // ********** A modifier => **************
