@@ -268,6 +268,8 @@ const Acceuil = () => {
                     )} 
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
+          
+
           {datas.slice(0, 5).map((post) => (
             <div
               className="acceuil-page__all-post__post"
@@ -308,8 +310,9 @@ const Acceuil = () => {
                     <i className="fa-solid fa-star"></i>
                   </div>
 
-                  <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
                     {(user._id === post.userId || user.isAdmin === true) && (
+                    <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
+
                       <button
                         onClick={toggleFormAcces}
                         className="btn-modal"
@@ -317,8 +320,9 @@ const Acceuil = () => {
                       >
                         Modifier
                       </button>
+                    </div> 
+
                     )}
-                  </div> 
                 </div>
               </div>
               {formAcces && (
@@ -374,7 +378,11 @@ const Acceuil = () => {
         </div>
         {/****************** Les Mieux notés ************************* */}
         <div className="acceuil-page__bests">
+                <h2 className="acceuil-page__bests-title">Les mieux nôtés,</h2>
 
+                <div className="acceuil-page__bests__swipe">
+
+                </div>
         </div>
       </div>
 

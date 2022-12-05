@@ -222,7 +222,7 @@ body {
           border-block-end: 5px solid;
   border-image-source: radial-gradient(circle at top center, #9d68f1 20%, transparent 90%);
   border-image-slice: 1;
-  box-shadow: 0 0 10px #9d68f1;
+  box-shadow: 0 0 10px #9d68f1, 0 0 20px #9d68f1, 0 0 40px #9d68f1;
 }
 .acceuil-page__form-container-create__pseudo {
   font-family: arial;
@@ -264,6 +264,7 @@ body {
   font-family: "Aboreto", cursive;
   background: white;
   width: clamp(200px, 20vw, 600px);
+  resize: vertical;
   padding: 10px;
   outline: none;
   border-radius: 15px;
@@ -280,7 +281,7 @@ body {
   height: 100px;
   border-radius: 50%;
   outline: none;
-  border: 2px #090909 solid;
+  border: 1px #090909 solid;
   background: linear-gradient(145deg, #171717, #444245);
   box-shadow: inset 2px 2px 0px #7d7c7e, inset -2px -2px 0px #1c1c1c;
   color: #a6a6a6;
@@ -322,7 +323,7 @@ body {
   height: 100px;
   border-radius: 50%;
   outline: none;
-  border: 2px #090909 solid;
+  border: 1px #090909 solid;
   background: linear-gradient(145deg, #171717, #444245);
   box-shadow: inset 2px 2px 0px #7d7c7e, inset -2px -2px 0px #1c1c1c;
   color: #a6a6a6;
@@ -382,7 +383,7 @@ body {
 }
 .acceuil-page__all-post__post {
   border-radius: 15px;
-  background: #4e5166;
+  background: linear-gradient(120deg, rgb(43, 41, 43) 0%, rgb(10, 10, 10) 100%);
   margin-bottom: 20px;
   margin-top: 20px;
   overflow: hidden;
@@ -450,7 +451,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 15px;
-  height: 50px;
+  height: 60px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -462,15 +463,18 @@ body {
   font-family: "Aboreto", cursive;
   width: 30%;
   height: 70%;
+  border: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.247));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
 }
 .acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button:focus, .acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal button:hover {
-  border: 3px solid #fd2d01;
-  background: #ffd7d7;
-  scale: 1.1;
-  transition: all 500ms ease-out;
+  scale: 1.05;
+  transition: all 50ms ease-out;
 }
-.acceuil-page__all-post__modal {
-  background: rgba(49, 49, 49, 0.61);
+.acceuil-page__all-post__post__modal {
+  background: linear-gradient(90deg, rgba(43, 41, 43, 0.5) 0%, rgba(10, 10, 10, 0.6) 100%);
   width: 100%;
   height: 100vh;
   top: 0;
@@ -483,20 +487,23 @@ body {
   align-items: center;
   justify-content: center;
 }
-.acceuil-page__all-post__modal__interact {
+.acceuil-page__all-post__post__modal__interact {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #4e5166;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
   padding: 50px;
   gap: 20px;
   border-radius: 15px;
 }
-.acceuil-page__all-post__modal__interact__form-container-update {
+.acceuil-page__all-post__post__modal__interact__form-container-update {
   padding: 20px;
   height: 80%;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -506,16 +513,16 @@ body {
   width: 100%;
   height: 100%;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text {
   display: flex;
   flex-direction: column;
   height: 100px;
   color: white;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text label {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text label {
   margin-bottom: 15px;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text textarea {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea {
   font-size: 20px;
   font-family: "Aboreto", cursive;
   background: white;
@@ -526,33 +533,33 @@ body {
   border: none;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text textarea:focus, .acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-text textarea:hover {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-text textarea:hover {
   background-color: #ffd7d7;
   border: 3px solid #fd2d01;
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file {
   display: flex;
   flex-direction: column;
   height: 100px;
   justify-content: center;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label {
   cursor: pointer;
   margin-bottom: 15px;
   color: white;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label i {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label i {
   margin-left: 10px;
   margin-right: 10px;
   font-size: 1.5em;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label input {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label input {
   display: none;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label:focus, .acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-file label:hover {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file label:hover {
   border: 3px solid #fd2d01;
   border-radius: 15px;
   padding: 5px;
@@ -560,7 +567,7 @@ body {
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-btn-update {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update {
   border-radius: 15px;
   outline: none;
   border: none;
@@ -574,13 +581,13 @@ body {
   height: 50px;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-btn-update:focus, .acceuil-page__all-post__modal__interact__form-container-update__form-update-post__form-btn-update:hover {
+.acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update:focus, .acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-btn-update:hover {
   border: 3px solid #fd2d01;
   background: #ffd7d7;
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__modal__interact__delete-post {
+.acceuil-page__all-post__post__modal__interact__delete-post {
   border-radius: 15px;
   outline: none;
   border: none;
@@ -594,13 +601,13 @@ body {
   height: 50px;
   transition: all 500ms ease;
 }
-.acceuil-page__all-post__modal__interact__delete-post:focus, .acceuil-page__all-post__modal__interact__delete-post:hover {
+.acceuil-page__all-post__post__modal__interact__delete-post:focus, .acceuil-page__all-post__post__modal__interact__delete-post:hover {
   border: 3px solid #fd2d01;
   background: #ffd7d7;
   scale: 1.1;
   transition: all 500ms ease-out;
 }
-.acceuil-page__all-post__modal__interact__delete-post i {
+.acceuil-page__all-post__post__modal__interact__delete-post i {
   margin-left: 10px;
   margin-right: 10px;
   font-size: 1.5em;
@@ -609,6 +616,21 @@ body {
   height: 500px;
   background-color: black;
   width: 100%;
+  color: #fff;
+  padding: 50px 50px 50px 150px;
+}
+.acceuil-page__bests-title {
+  font-family: arial;
+  margin: 0;
+  position: relative;
+  font-size: 6em;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.5333333333));
+  line-height: 0.7em;
+  outline: none;
+  color: #fff;
+  text-shadow: 0 0 10px #9d68f1, 0 0 20px #9d68f1, 0 0 40px #9d68f1, 0 0 80px #9d68f1, 0 0 160px #9d68f1;
 }
 
 @media screen and (max-width: 1850px) {

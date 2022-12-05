@@ -6,9 +6,9 @@
   gap: 20px;
 
   &__post {
-
     border-radius: 15px;
-    background: #4e5166;
+    background: linear-gradient(120deg, rgb(43, 41, 43) 0%,
+        rgb(10, 10, 10) 100%);
     margin-bottom: 20px;
     margin-top: 20px;
     overflow: hidden;
@@ -84,7 +84,7 @@
           justify-content: center;
           align-items: center;
           margin: 15px;
-          height: 50px;
+          height: 60px;
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
           background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -97,176 +97,185 @@
             font-family: $font-1;
             width: 30%;
             height: 70%;
+            border: none;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.247));
+            box-shadow: 0 8px 32px rgb(2, 4, 24);
 
             &:focus,
             &:hover {
-              border: 3px solid $color-1;
-              background: $color-2;
-              scale: 1.1;
-              transition: all 500ms ease-out;
+              scale: 1.05;
+              transition: all 50ms ease-out;
             }
           }
         }
       }
     }
-  }
 
-  &__modal {
-    background: rgba(49, 49, 49, 0.61);
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    &__interact {
+    &__modal {
+      background: linear-gradient(90deg, rgb(43, 41, 43, 0.5) 0%,
+          rgb(10, 10, 10, 0.6) 100%);
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: fixed;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: $color-3;
-      padding: 50px;
-      gap: 20px;
-      border-radius: 15px;
+      justify-content: center;
 
-      &__form-container-update {
-        padding: 20px;
-        height: 80%;
+      &__interact {
 
-        &__form-update-post {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: center;
-          gap: 20px;
-          font-size: 20px;
-          width: 100%;
-          height: 100%;
-
-          &__form-text {
-            display: flex;
-            flex-direction: column;
-            height: 100px;
-            color: white;
-
-            label {
-              margin-bottom: 15px;
-            }
-
-            textarea {
-              font-size: 20px;
-              font-family: $font-1;
-              background: white;
-
-              width: 250px;
-              padding: 10px;
-              outline: none;
-              border-radius: 15px;
-              border: none;
-              transition: all 500ms ease;
-
-              &:focus,
-              &:hover {
-                background-color: $color-2;
-                border: 3px solid $color-1;
-                scale: 1.1;
-                transition: all 500ms ease-out;
-              }
-            }
-          }
-
-          &__form-file {
-            display: flex;
-            flex-direction: column;
-            height: 100px;
-            justify-content: center;
-
-            label {
-              cursor: pointer;
-              margin-bottom: 15px;
-              color: white;
-              transition: all 500ms ease;
-
-              i {
-                margin-left: 10px;
-                margin-right: 10px;
-                font-size: 1.5em;
-              }
-
-              input {
-                display: none;
-              }
-
-              &:focus,
-              &:hover {
-                border: 3px solid $color-1;
-                border-radius: 15px;
-                padding: 5px;
-                color: $color-2;
-                scale: 1.1;
-                transition: all 500ms ease-out;
-              }
-            }
-          }
-
-          &__form-btn-update {
-            border-radius: 15px;
-            outline: none;
-            border: none;
-            font-family: $font-1;
-            font-size: 1rem;
-            background: white;
-            color: black;
-            cursor: pointer;
-            width: 150px;
-            margin: 0;
-            height: 50px;
-            transition: all 500ms ease;
-
-            &:focus,
-            &:hover {
-              border: 3px solid $color-1;
-              background: $color-2;
-              scale: 1.1;
-              transition: all 500ms ease-out;
-            }
-          }
-        }
-      }
-
-      &__delete-post {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        box-shadow: 0 8px 32px rgb(2, 4, 24);
+        padding: 50px;
+        gap: 20px;
         border-radius: 15px;
-        outline: none;
-        border: none;
-        font-family: $font-1;
-        font-size: 1rem;
-        background: white;
-        color: black;
-        cursor: pointer;
-        width: 150px;
-        margin: 0;
-        height: 50px;
-        transition: all 500ms ease;
 
-        &:focus,
-        &:hover {
-          border: 3px solid $color-1;
-          background: $color-2;
-          scale: 1.1;
-          transition: all 500ms ease-out;
+        &__form-container-update {
+          padding: 20px;
+          height: 80%;
+
+          &__form-update-post {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            font-size: 20px;
+            width: 100%;
+            height: 100%;
+
+            &__form-text {
+              display: flex;
+              flex-direction: column;
+              height: 100px;
+              color: white;
+
+              label {
+                margin-bottom: 15px;
+              }
+
+              textarea {
+                font-size: 20px;
+                font-family: $font-1;
+                background: white;
+
+                width: 250px;
+                padding: 10px;
+                outline: none;
+                border-radius: 15px;
+                border: none;
+                transition: all 500ms ease;
+
+                &:focus,
+                &:hover {
+                  background-color: $color-2;
+                  border: 3px solid $color-1;
+                  scale: 1.1;
+                  transition: all 500ms ease-out;
+                }
+              }
+            }
+
+            &__form-file {
+              display: flex;
+              flex-direction: column;
+              height: 100px;
+              justify-content: center;
+
+              label {
+                cursor: pointer;
+                margin-bottom: 15px;
+                color: white;
+                transition: all 500ms ease;
+
+                i {
+                  margin-left: 10px;
+                  margin-right: 10px;
+                  font-size: 1.5em;
+                }
+
+                input {
+                  display: none;
+                }
+
+                &:focus,
+                &:hover {
+                  border: 3px solid $color-1;
+                  border-radius: 15px;
+                  padding: 5px;
+                  color: $color-2;
+                  scale: 1.1;
+                  transition: all 500ms ease-out;
+                }
+              }
+            }
+
+            &__form-btn-update {
+              border-radius: 15px;
+              outline: none;
+              border: none;
+              font-family: $font-1;
+              font-size: 1rem;
+              background: white;
+              color: black;
+              cursor: pointer;
+              width: 150px;
+              margin: 0;
+              height: 50px;
+              transition: all 500ms ease;
+
+              &:focus,
+              &:hover {
+                border: 3px solid $color-1;
+                background: $color-2;
+                scale: 1.1;
+                transition: all 500ms ease-out;
+              }
+            }
+          }
         }
 
-        i {
-          margin-left: 10px;
-          margin-right: 10px;
-          font-size: 1.5em;
+        &__delete-post {
+          border-radius: 15px;
+          outline: none;
+          border: none;
+          font-family: $font-1;
+          font-size: 1rem;
+          background: white;
+          color: black;
+          cursor: pointer;
+          width: 150px;
+          margin: 0;
+          height: 50px;
+          transition: all 500ms ease;
+
+          &:focus,
+          &:hover {
+            border: 3px solid $color-1;
+            background: $color-2;
+            scale: 1.1;
+            transition: all 500ms ease-out;
+          }
+
+          i {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 1.5em;
+          }
         }
       }
     }
   }
+
 }

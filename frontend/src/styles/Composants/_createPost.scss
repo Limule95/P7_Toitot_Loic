@@ -12,7 +12,10 @@
       #9d68f1 20%,
       transparent 90%);
   border-image-slice: 1;
-  box-shadow: 0 0 10px #9d68f1;
+  box-shadow: 0 0 10px #9d68f1,
+    0 0 20px #9d68f1,
+    0 0 40px #9d68f1,
+  ;
 
   &__pseudo {
     font-family: arial;
@@ -55,6 +58,7 @@
         font-family: $font-1;
         background: white;
         width: clamp(200px, 20vw, 600px);
+        resize: vertical;
         padding: 10px;
         outline: none;
         border-radius: 15px;
@@ -75,7 +79,7 @@
       height: 100px;
       border-radius: 50%;
       outline: none;
-      border: 2px #090909 solid;
+      border: 1px #090909 solid;
       background: linear-gradient(145deg, #171717, #444245);
       box-shadow: inset 2px 2px 0px #7d7c7e,
         inset -2px -2px 0px #1c1c1c;
@@ -129,7 +133,7 @@
       height: 100px;
       border-radius: 50%;
       outline: none;
-      border: 2px #090909 solid;
+      border: 1px #090909 solid;
       background: linear-gradient(145deg, #171717, #444245);
       box-shadow: inset 2px 2px 0px #7d7c7e,
         inset -2px -2px 0px #1c1c1c;

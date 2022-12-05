@@ -1,5 +1,25 @@
 &__bests {
     height: 500px;
     background-color: black;
-    width: 100%; 
+    width: 100%;
+    color: #fff;
+    padding: 50px 50px 50px 150px;
+
+    &-title {
+        font-family: arial;
+        margin: 0;
+        position: relative;
+        font-size: 6em;
+        letter-spacing: 15px;
+        text-transform: uppercase;
+        -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+        line-height: 0.7em;
+        outline: none;
+        color: #fff;
+        text-shadow: 0 0 10px #9d68f1,
+            0 0 20px #9d68f1,
+            0 0 40px #9d68f1,
+            0 0 80px #9d68f1,
+            0 0 160px #9d68f1;
+    }
 }
