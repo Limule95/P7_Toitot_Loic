@@ -237,7 +237,7 @@ const Acceuil = () => {
           >
             <div className="acceuil-page__form-container-create__form-new-post__form-text">
               <label htmlFor="message">Synopsis, </label>
-              <textarea name="text" id="message" maxlength="500" />
+              <textarea name="text" id="message" maxLength="585" />
             </div>
 
             <div className="acceuil-page__form-container-create__form-new-post__form-file">
@@ -258,8 +258,8 @@ const Acceuil = () => {
               type="submit"
               className="acceuil-page__form-container-create__form-new-post__form-btn-post"
             >
-              <span class="material-icons-outlined">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span className="material-icons-outlined">
+                <i className="fa-solid fa-cloud-arrow-up"></i>
               </span>
             </button>
 
@@ -301,11 +301,11 @@ const Acceuil = () => {
                 </div>
                 <div className="acceuil-page__all-post__post__post-info__box-event-interact">
                   <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
                   </div>
 
                   <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
@@ -339,7 +339,7 @@ const Acceuil = () => {
                             type="text"
                             name="text"
                             id="message-update"
-                            maxlength="585"
+                            maxLength="585"
                           />
                         </div>
                         <div className="acceuil-page__all-post__post__modal__interact__form-container-update__form-update-post__form-file">

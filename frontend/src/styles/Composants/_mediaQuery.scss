@@ -3,75 +3,74 @@
   .acceuil-page {
     &__navbar {
       &__logo {
-        img {
-
-        }
+        img {}
       }
+
       &__navbar-btn {
         &__btn-logout {
-          h1 {
-          }
-          i {
-          }
+          h1 {}
+
+          i {}
         }
       }
     }
+
     &__form-container-create {
-      p {
-      }
+      p {}
+
       &__form-new-post {
         &__form-text {
-          label {
-          }
-          textarea {
-          }
+          label {}
+
+          textarea {}
         }
-        &__form-file {
-        }
-        &__form-btn-post {
-        }
+
+        &__form-file {}
+
+        &__form-btn-post {}
       }
     }
+
     &__all-post {
       grid-template-columns: repeat(2, 0.4fr);
-      grid-auto-rows: 800px;
       gap: 50px;
+      justify-content: center;
+
       &__post {
         &__post-info {
-          &__box-text {
-          }
+          &__box-text {}
+
           &__box-img {
-            width: 80%;
-            img {
-            }
+            padding-top: 45px;
+
+            img {}
           }
+
           &__box-event-interact {
-            &__box-likes {
-            }
+            &__box-likes {}
+
             &__box-update-modal {
-              button {
-              }
+              button {}
             }
           }
         }
+
         &__modal {
           &__interact {
             &__form-container-update {
               &__form-update-post {
                 &__form-text {
-                  textarea {
-                  }
+                  textarea {}
                 }
-                &__form-file {
-                }
-                &__form-btn-update {
-                }
+
+                &__form-file {}
+
+                &__form-btn-update {}
               }
             }
 
             &__delete-post {
-              i {
-              }
+              i {}
             }
           }
         }
@@ -86,9 +85,11 @@
     img {
       width: 80%;
     }
+
     &__log-container {
       &__connection-form {
         min-width: auto;
+
         &__form-container {
           flex-direction: column;
 
@@ -110,98 +111,121 @@
           height: 70px;
         }
       }
+
       &__navbar-btn {
         padding: 0;
+
         &__btn-logout {
           padding: 15px;
           height: 25px;
+
           h1 {
             display: none;
           }
+
           i {
             font-size: 1.1em;
           }
         }
       }
     }
+
     &__form-container-create {
 
       p {
         margin-top: 10px;
         font-size: 15px;
       }
+
       &__form-new-post {
         flex-direction: column;
         gap: 0px;
         font-size: 15px;
+
         &__form-text {
           align-items: center;
           height: 100px;
           color: white;
+
           label {
             margin-bottom: 10px;
           }
+
           textarea {
             font-size: 15px;
             width: 100%;
           }
         }
+
         &__form-file {
           height: 70px;
         }
+
         &__form-btn-post {
           height: 25px;
           transition: all 500ms ease;
         }
       }
     }
+
     &__all-post {
       grid-template-columns: 1fr;
-
       gap: 10px;
+
       &__post {
         width: 95%;
         margin-bottom: 10px;
         margin-top: 10px;
+
         &__post-info {
           &__box-text {
             font-size: 15px;
           }
+
           &__box-img {
             img {
               margin: 10px;
               width: 95%;
             }
           }
+
           &__box-event-interact {
             &__box-likes {
               margin: 10px;
             }
+
             &__box-update-modal {
               margin: 15px;
+
               button {
                 height: 25px;
               }
             }
           }
         }
+
         &__modal {
           &__interact {
             padding: 25px;
             gap: 0px;
+
             &__form-container-update {
               &__form-update-post {
                 gap: 0;
                 font-size: 15px;
+
                 &__form-text {
                   align-items: center;
+
                   textarea {
                     font-size: 15px;
                   }
                 }
+
                 &__form-file {
                   height: 50px;
                 }
+
                 &__form-btn-update {
                   height: 25px;
                 }
@@ -210,6 +234,7 @@
 
             &__delete-post {
               height: 25px;
+
               i {
                 font-size: 1.2em;
               }
@@ -229,52 +254,64 @@
         margin-bottom: 10px;
         font-size: 20px;
       }
+
       &__form-new-post {
         flex-direction: column;
         gap: 15px;
         font-size: 17px;
+
         &__form-text {
           align-items: center;
           height: 100px;
           color: white;
+
           label {
             margin-bottom: 10px;
           }
+
           textarea {
             font-size: 20px;
             width: 100%;
           }
         }
+
         &__form-file {
           height: 70px;
         }
+
         &__form-btn-post {
           height: 25px;
           transition: all 500ms ease;
         }
       }
     }
+
     &__all-post {
       &__post {
         width: 95%;
         margin-bottom: 10px;
         margin-top: 10px;
+
         &__post-info {
           &__box-text {
             font-size: 15px;
           }
+
           &__box-img {
             img {
               margin: 10px;
               width: 95%;
             }
           }
+
           &__box-event-interact {
             &__box-likes {
               margin: 10px;
             }
+
             &__box-update-modal {
               margin: 15px;
+
               button {
                 height: 25px;
               }

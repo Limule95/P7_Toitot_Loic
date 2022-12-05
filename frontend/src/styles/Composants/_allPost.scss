@@ -2,7 +2,7 @@
   padding: 50px 10px 150px 150px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 900px;
+  grid-auto-rows: min-content;
   gap: 20px;
 
   &__post {
@@ -11,6 +11,7 @@
     background: #4e5166;
     margin-bottom: 20px;
     margin-top: 20px;
+    overflow: hidden;
 
     &__post-info {
       display: flex;
@@ -36,22 +37,27 @@
             margin: 10px 0;
           }
         }
+
         &__post-text {
           padding: 0 10px;
           height: 210px;
           margin: 5px 0;
         }
       }
+
       &__box-img {
+        padding-top: 20px;
         display: flex;
         justify-content: center;
+
         img {
           box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.4);
           border-radius: 30px 30px 30px 30px;
-          margin: 20px;
+          margin: 20px 0;
           width: 90%;
         }
       }
+
       &__box-event-interact {
         display: flex;
         width: 100%;
@@ -63,47 +69,35 @@
           height: 80px;
           width: 60%;
           display: flex;
-          justify-content:center;
+          justify-content: center;
           align-items: center;
-          
-          i{
+
+          i {
             font-size: clamp(2.5em, 3vw, 4em);
           }
         }
 
-          .btn-unlike {
-            background: white;
-            font-size: 20px;
-            cursor: pointer;
-            width: 100px;
-            margin-left: 5px;
-            border: none;
-            border-radius: 0px 20px;
-            transition: all 500ms;
-            i {
-              color: $color-icon-unlike;
-            }
-            &:focus,
-            &:hover {
-              border: 3px solid $color-1;
-              box-shadow: 0px 0px 10px 10px rgba(187, 187, 187, 0.4);
-              scale: 1.1;
-            }
-          }
-        }
         &__box-update-modal {
+          display: flex;
+          width: 95%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
           margin: 15px;
+          height: 50px;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+          box-shadow: 0 8px 32px rgb(2, 4, 24);
+
+
           button {
-            border-radius: 15px;
-            outline: none;
-            border: none;
-            font-family: "Aboreto", cursive;
-            font-size: 1rem;
-            background: white;
-            cursor: pointer;
-            width: 150px;
-            height: 50px;
-            transition: all 500ms ease;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-family: $font-1;
+            width: 30%;
+            height: 70%;
+
             &:focus,
             &:hover {
               border: 3px solid $color-1;
@@ -115,151 +109,164 @@
         }
       }
     }
+  }
 
-    &__modal {
-      background: rgba(49, 49, 49, 0.61);
-      width: 100%;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      position: fixed;
+  &__modal {
+    background: rgba(49, 49, 49, 0.61);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__interact {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      background: $color-3;
+      padding: 50px;
+      gap: 20px;
+      border-radius: 15px;
 
-      &__interact {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: $color-3;
-        padding: 50px;
-        gap: 20px;
-        border-radius: 15px;
+      &__form-container-update {
+        padding: 20px;
+        height: 80%;
 
-        &__form-container-update {
-          padding: 20px;
-          height: 80%;
+        &__form-update-post {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          gap: 20px;
+          font-size: 20px;
+          width: 100%;
+          height: 100%;
 
-          &__form-update-post {
+          &__form-text {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            gap: 20px;
-            font-size: 20px;
-            width: 100%;
-            height: 100%;
-            &__form-text {
-              display: flex;
-              flex-direction: column;
-              height: 100px;
-              color: white;
-              label {
-                margin-bottom: 15px;
-              }
-              textarea {
-                font-size: 20px;
-                font-family: $font-1;
-                background: white;
+            height: 100px;
+            color: white;
 
-                width: 250px;
-                padding: 10px;
-                outline: none;
-                border-radius: 15px;
-                border: none;
-                transition: all 500ms ease;
-                &:focus,
-                &:hover {
-                  background-color: $color-2;
-                  border: 3px solid $color-1;
-                  scale: 1.1;
-                  transition: all 500ms ease-out;
-                }
-              }
+            label {
+              margin-bottom: 15px;
             }
-            &__form-file {
-              display: flex;
-              flex-direction: column;
-              height: 100px;
-              justify-content: center;
-              label {
-                cursor: pointer;
-                margin-bottom: 15px;
-                color: white;
-                transition: all 500ms ease;
-                i {
-                  margin-left: 10px;
-                  margin-right: 10px;
-                  font-size: 1.5em;
-                }
-                input {
-                  display: none;
-                }
-                &:focus,
-                &:hover {
-                  border: 3px solid $color-1;
-                  border-radius: 15px;
-                  padding: 5px;
-                  color: $color-2;
-                  scale: 1.1;
-                  transition: all 500ms ease-out;
-                }
-              }
-            }
-            &__form-btn-update {
-              border-radius: 15px;
-              outline: none;
-              border: none;
+
+            textarea {
+              font-size: 20px;
               font-family: $font-1;
-              font-size: 1rem;
               background: white;
-              color: black;
-              cursor: pointer;
-              width: 150px;
-              margin: 0;
-              height: 50px;
+
+              width: 250px;
+              padding: 10px;
+              outline: none;
+              border-radius: 15px;
+              border: none;
               transition: all 500ms ease;
+
               &:focus,
               &:hover {
+                background-color: $color-2;
                 border: 3px solid $color-1;
-                background: $color-2;
                 scale: 1.1;
                 transition: all 500ms ease-out;
               }
             }
           }
+
+          &__form-file {
+            display: flex;
+            flex-direction: column;
+            height: 100px;
+            justify-content: center;
+
+            label {
+              cursor: pointer;
+              margin-bottom: 15px;
+              color: white;
+              transition: all 500ms ease;
+
+              i {
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: 1.5em;
+              }
+
+              input {
+                display: none;
+              }
+
+              &:focus,
+              &:hover {
+                border: 3px solid $color-1;
+                border-radius: 15px;
+                padding: 5px;
+                color: $color-2;
+                scale: 1.1;
+                transition: all 500ms ease-out;
+              }
+            }
+          }
+
+          &__form-btn-update {
+            border-radius: 15px;
+            outline: none;
+            border: none;
+            font-family: $font-1;
+            font-size: 1rem;
+            background: white;
+            color: black;
+            cursor: pointer;
+            width: 150px;
+            margin: 0;
+            height: 50px;
+            transition: all 500ms ease;
+
+            &:focus,
+            &:hover {
+              border: 3px solid $color-1;
+              background: $color-2;
+              scale: 1.1;
+              transition: all 500ms ease-out;
+            }
+          }
+        }
+      }
+
+      &__delete-post {
+        border-radius: 15px;
+        outline: none;
+        border: none;
+        font-family: $font-1;
+        font-size: 1rem;
+        background: white;
+        color: black;
+        cursor: pointer;
+        width: 150px;
+        margin: 0;
+        height: 50px;
+        transition: all 500ms ease;
+
+        &:focus,
+        &:hover {
+          border: 3px solid $color-1;
+          background: $color-2;
+          scale: 1.1;
+          transition: all 500ms ease-out;
         }
 
-        &__delete-post {
-          border-radius: 15px;
-          outline: none;
-          border: none;
-          font-family: $font-1;
-          font-size: 1rem;
-          background: white;
-          color: black;
-          cursor: pointer;
-          width: 150px;
-          margin: 0;
-          height: 50px;
-          transition: all 500ms ease;
-          &:focus,
-          &:hover {
-            border: 3px solid $color-1;
-            background: $color-2;
-            scale: 1.1;
-            transition: all 500ms ease-out;
-          }
-          i {
-            margin-left: 10px;
-            margin-right: 10px;
-            font-size: 1.5em;
-          }
+        i {
+          margin-left: 10px;
+          margin-right: 10px;
+          font-size: 1.5em;
         }
       }
     }
   }
-
+}

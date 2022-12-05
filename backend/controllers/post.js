@@ -23,7 +23,7 @@ exports.createPost = (req, res) => {
                     pseudo: req.body.pseudo,
                     author: authorName,
                     message: req.body.message,
-                    image: "https://i.pinimg.com/originals/46/91/27/469127ec4e81b9c90fc76de8630d7819.png",
+                    image: "https://img5.goodfon.com/wallpaper/nbig/9/16/cyberpunk-car-supercar-art-anime-japan-kanji-japanse-street.jpg",
                     
                 }); 
                 post.save().then(() => {
