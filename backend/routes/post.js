@@ -11,8 +11,11 @@ router.put("/:id", auth, multer, postCtrl.updatePost);
 router.delete("/:id", auth, postCtrl.deletePost);
 router.get("/", postCtrl.getAllPost);
 router.get("/:id", auth, postCtrl.getOnePost);
-// route pour noter un post
-router.patch("/:id", postCtrl.ratePost )
+// route pour noter un post ***** WORKING
+router.patch("/:id", auth, postCtrl.ratePost);
+
+// route d'obtention de moyenne **** PROLY NOT WORKING YET
+// router.patch("/:id", postCtrl.postAverage);
 
 // On export notre module "router"
 module.exports = router;

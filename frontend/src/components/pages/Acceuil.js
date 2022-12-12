@@ -14,7 +14,7 @@ const Acceuil = () => {
 
   // Recuperation de tous les posts
   const [datas, setDatas] = useState([]);
-
+  // console.log(datas);
   // Recuperations des informations de l'user connecté
   const [user, setUser] = useState([]);
   // Raffraichir les données
@@ -23,9 +23,12 @@ const Acceuil = () => {
   const [formAcces, setFormAcces] = useState(false);
   // Récupération de l'id du post en fonction des intéractions
   const [modalId, setModalId] = useState("");
+  // Envoi de note 
+  const [rating, setRating] = useState("")
+
 
   // Recupération des likes de l'utilisateur
-  
+
   // function de récupération de l'id du post et de control d'accès aux modifications des posts
   const toggleFormAcces = (e) => {
     setModalId(e.target.id);
@@ -149,10 +152,34 @@ const Acceuil = () => {
         console.log(res);
       });
   };
-  // function requette (PATCH) like
-  
-  // Function de déconnection
-  const logOut = () => {
+
+  // Fonction requète PATCH vers le controller rate ****TO BE TESTED
+  const ratePost = (e) => {
+    e.preventDefault();
+    const id = e.target.id;
+    const rate = e.target.dataset.value;
+    axios({
+      method: "patch",
+      url: `http://localhost:8000/api/post/${id}`,
+      headers: {
+        authorization: `Bearer ${tokenLocalStorage}`,
+        "Content-Type": "application/json",
+      },
+      data: {
+        rate,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        setLoading(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // Function de déconnection *** TO BE CONNECTED TO BUTTON
+  const logOut = (e) => {
     localStorage.clear();
     window.location = "/";
   };
@@ -163,109 +190,113 @@ const Acceuil = () => {
       <div className="acceuil-page">
         {/* ************************HEADER FINAL************************* */}
         <header>
-        <div className="menu">
+          <div className="menu">
 
             <div className="menu__toggle">
-                <i className="bx bx-chevron-right"></i>
+              <i className="bx bx-chevron-right"></i>
             </div>
 
             <div className="menu__logo">
-                <img src={logo} alt="logo Groupomania" className="logo-site" />
-                <h3>Master manga</h3>
+              <img src={logo} alt="logo Groupomania" className="logo-site" />
+              <h3>Master manga</h3>
             </div>
 
             <nav className="menu__nav">
-                <div className="menu__nav__title">
-                    Management
-                </div>
+              <div className="menu__nav__title">
+                Management
+              </div>
 
-                <ul>
-                    <li className="menu__nav__item">
-                        <i className="bx bxs-dashboard"></i>
-                        <span>Home</span>
-                    </li>
-                    <li className="menu__nav__item">
-                        <i className='bx bxs-wallet'></i>
-                        <span>Wallet</span>
-                    </li>
-                    <li className="menu__nav__item">
-                        <i className='bx bxs-basket'></i>
-                        <span>Basket</span>
-                    </li>
-                    <li className="menu__nav__item">
-                        <i className='bx bxs-bell'></i>
-                        <span>Notifications</span>
-                    </li>
-                    <li className="menu__nav__item">
-                        <i className='bx bxs-user-rectangle'></i>
-                        <span>User</span>
-                    </li>
-                    <li className="menu__nav__item">
-                        <i className='bx bx-cog'></i>
-                        <span>Settings</span>
-                    </li>
-                </ul>
+              <ul>
+                <li className="menu__nav__item">
+                  <i className="bx bxs-dashboard"></i>
+                  <span>Home</span>
+                </li>
+                <li className="menu__nav__item">
+                  <i className='bx bxs-wallet'></i>
+                  <span>Wallet</span>
+                </li>
+                <li className="menu__nav__item">
+                  <i className='bx bxs-basket'></i>
+                  <span>Basket</span>
+                </li>
+                <li className="menu__nav__item">
+                  <i className='bx bxs-bell'></i>
+                  <span>Notifications</span>
+                </li>
+                <li className="menu__nav__item">
+                  <i className='bx bxs-user-rectangle'></i>
+                  <span>User</span>
+                </li>
+                <li className="menu__nav__item">
+                  <i className='bx bx-cog'></i>
+                  <span>Settings</span>
+                </li>
+                <li className="menu__nav__item" onClick={logOut}>
+                  <i className='bx bx-cog'></i>
+                  <span>logout</span>
+                </li>
+              </ul>
 
-            
-                <div className="menu__nav__title">
-                    Supports
-                </div>
 
-                <ul>
-                    <li className="menu__nav__item">
-                        <i className="bx bxs-help-circle"></i>
-                        <span>Get Help</span>
-                    </li>
-                    <li className="menu__nav__item">
-                        <i className='bx bxs-message-dots'></i>
-                        <span>Send Feedback</span>
-                    </li>
-                </ul>
+              <div className="menu__nav__title">
+                Supports
+              </div>
+
+              <ul>
+                <li className="menu__nav__item">
+                  <i className="bx bxs-help-circle"></i>
+                  <span>Get Help</span>
+                </li>
+                <li className="menu__nav__item">
+                  <i className='bx bxs-message-dots'></i>
+                  <span>Send Feedback</span>
+                </li>
+              </ul>
             </nav>
-        </div>
+          </div>
         </header>
 
         {/* ************  Creation de Post ************************* */}
         {(user.isAuthor === true || user.isAdmin === true) && (
-            <div className="acceuil-page__form-container-create">
+          <div className="acceuil-page__form-container-create">
 
-              <h2 className="acceuil-page__form-container-create__pseudo">{user.pseudo}</h2>
-          <form
-            action=""
-            className="acceuil-page__form-container-create__form-new-post"
-            onSubmit={handlePost}
-          >
-            <div className="acceuil-page__form-container-create__form-new-post__form-text">
-              <label htmlFor="message">Synopsis, </label>
-              <textarea name="text" id="message" maxLength="500" />
-            </div>
-
-            <div className="acceuil-page__form-container-create__form-new-post__form-file">
-              
-              <label
-                htmlFor="file-create"
-                className="acceuil-page__form-container-create__form-new-post__form-file__file"
-              >
-
-                <i className="fa-solid fa-image"></i>
-
-                <input type="file" name="file" id="file-create" />
-                  
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              className="acceuil-page__form-container-create__form-new-post__form-btn-post"
+            <h2 className="acceuil-page__form-container-create__pseudo">{user.pseudo}</h2>
+            <form
+              action=""
+              className="acceuil-page__form-container-create__form-new-post"
+              onSubmit={handlePost}
             >
-              <span className="material-icons-outlined">
-                <i className="fa-solid fa-cloud-arrow-up"></i>
-              </span>
-            </button>
+              <div className="acceuil-page__form-container-create__form-new-post__form-text">
+                <label htmlFor="message">Synopsis, </label>
+                <textarea name="text" id="message" maxLength="500" />
+              </div>
 
-          </form>
-        </div>
-                    )} 
+              <div className="acceuil-page__form-container-create__form-new-post__form-file">
+
+                <label
+                  htmlFor="file-create"
+                  className="acceuil-page__form-container-create__form-new-post__form-file__file"
+                >
+
+                  <i className="fa-solid fa-image"></i>
+
+                  <input type="file" name="file" id="file-create" />
+
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                className="acceuil-page__form-container-create__form-new-post__form-btn-post"
+              >
+                <span className="material-icons-outlined">
+                  <i className="fa-solid fa-cloud-arrow-up"></i>
+                </span>
+              </button>
+
+            </form>
+          </div>
+        )}
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
 
@@ -298,31 +329,40 @@ const Acceuil = () => {
                 )}
 
                 {/* ************  Interaction  ************ */}
-                <div className="acceuil-page__all-post__post__post-info__note">
-                  <p>Note : {post.rate} </p> 
-                </div>
+                {(post.moyenne === null) && (
+                  <div className="acceuil-page__all-post__post__post-info__note">
+                    <p>Note : n/a </p>
+                  </div>
+                )}
+                {(post.moyenne != null) && (
+                  <div className="acceuil-page__all-post__post__post-info__note">
+                    <p>Note : {post.moyenne} </p>
+                  </div>
+                )}
+
+
                 <div className="acceuil-page__all-post__post__post-info__box-event-interact">
                   <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
+                    <i id={post._id} data-value="1" className="fa-solid fa-star" onClick={ratePost}></i>
+                    <i id={post._id} data-value="2" className="fa-solid fa-star" onClick={ratePost}></i>
+                    <i id={post._id} data-value="3" className="fa-solid fa-star" onClick={ratePost}></i>
+                    <i id={post._id} data-value="4" className="fa-solid fa-star" onClick={ratePost}></i>
+                    <i id={post._id} data-value="5" className="fa-solid fa-star" onClick={ratePost}></i>
                   </div>
 
-                    {(user._id === post.userId || user.isAdmin === true) && (
+                  {(user._id === post.userId || user.isAdmin === true) && (
                     <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
 
                       <button
                         onClick={toggleFormAcces}
                         className="btn-modal"
-                        id={post._id} 
+                        id={post._id}
                       >
                         Modifier
                       </button>
-                    </div> 
+                    </div>
 
-                    )}
+                  )}
                 </div>
               </div>
               {formAcces && (
@@ -378,11 +418,11 @@ const Acceuil = () => {
         </div>
         {/****************** Les Mieux notés ************************* */}
         <div className="acceuil-page__bests">
-                <h2 className="acceuil-page__bests-title">Les mieux nôtés,</h2>
+          <h2 className="acceuil-page__bests-title">Les mieux nôtés,</h2>
 
-                <div className="acceuil-page__bests__swipe">
+          <div className="acceuil-page__bests__swipe">
 
-                </div>
+          </div>
         </div>
       </div>
 

@@ -9,7 +9,7 @@ const postSchema = mongoose.Schema({
   message: { type: String, required: true, maxlength: 500 },
   image: { type: String },
   rate: { type: [Number], default: null },
-  moyenne: { type: Number, default: "n/a" },
+  moyenne: { type: Number, default: null },
 });
 
 // On exporte postSchema

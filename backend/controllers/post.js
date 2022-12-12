@@ -191,68 +191,97 @@ exports.getAllPost = (req, res) => { // On récupère tous les posts
 
 // Route pour noter un post****************
 exports.ratePost = (req, res) => {
+  User.findOne({ _id: req.auth.userId }).then((user) => {
+    Post.findOne({ _id: req.params.id }).then((post) => {
+      if (user.isAuthor === false) {
+        Post.updateOne(
+          { _id: req.params.id },
+          {
+            $push: {
+              rate: req.body.rate,
+            },
+          }
+        )
+          .then((Note) => {
+            // On identifie le post dont on veut la moyenne. post.findOne()
+            Post.findOne({ _id: req.params.id }).then((post) => {
+              let rateLength = post.rate.length;
 
-  Post.findOne({ _id: req.params.id }).then((post) => {
-    let length = post.rate.length;
-    console.log(post);
-    // Si l'user est un auteur, il ne peut pas voter. if (user.author === false) "alors on fait la fonction" else "action impossible"
+              var i = 0, summ = 0, ArrayLen = rateLength;
+              while (i < ArrayLen) {
+                summ = summ + post.rate[i++];
+              }
+              let averageMoyenne = summ / ArrayLen;
+              console.log(averageMoyenne);
 
-    // si post.rate = null (=array vide)alors post.rate prend la valeur de choisie par l'user
+              Post.updateOne(
+                { _id: req.params.id },
+                {
+                  $set: {
+                    moyenne: averageMoyenne,
+                  }
+                }
+              )
+                .then(() => {
+                  res.status(200).json({ message: "Moyenne calculée!" });
+                })
+                .catch((error) => res.status(401).json({ error, message: "Erreur du calcule de la moyenne" }));
 
-    if (length === 0) {
-      Post.updateOne(
-        { _id: req.params.id },
-        {
-          $push: {
-            rate: req.body.rate,
-          },
-        }
-      )
-        .then(() => {
-          let moyenne = req.body.rate
-          res.status(200).json({ moyenne, message: "Mention envoyée!" });
-        })
-        .catch((error) => res.status(401).json({ error }));
-    }
-    // // si post.rate != 0 alors post.rate rajoute la valeur choisie par l'user a l'array et en fait la moyenne
-    if (length > 0) {
-
-      Post.updateOne(
-        { _id: req.params.id },
-        {
-          $push: {
-            rate: req.body.rate,
-          },
-        }
-      )
-        .then(() => {
-          Post.findOne({ _id: req.params.id }).then((ratedPost) => {
-            var b = ratedPost.rate.length;
-            var c = 0, i;
-            for (i = 0; i < b; i++) {
-              c += Number(ratedPost.rate[i]);
-            }
-            let moyenne = c / b
-            res.status(200).json({ moyenne, message: "ok" });
+            })
           })
-        })
-        .catch((err) => res.status(500).json(err));
-    }
-  }).catch((error) => {
-    res.status(400).json({ error });
-  });
+      } else {
+        res.status(403).json({ message: "Un auteur ne peut voter." })
+      }
+    }).catch((error) => {
+      res.status(400).json({
+        error, message: "post non identifié."
+      });
+    });
+  }).catch((err) => res.status(500).json({ error, message: "utilisateur introuvable" }));
 }
 
 // ********** Route pour calculer la moyenne d'un livre **************
-exports.postAverage = (req, res) => {
-  // On identifie le post dont on veut la moyenne. post.findOne()
+// exports.postAverage = (req, res) => {
+//   // On identifie le post dont on veut la moyenne. post.findOne()
+//   Post.findOne({ _id: req.params.id }).then((post) => {
 
-  // on récupère le tableau des rates dans une var . let averageRate = post.rate
 
-  // on utilise notre fonction de calc de moy numAverage()
+//     // on récupère le tableau des rates dans une var . let averageRate = post.rate
+//     let rateLength = post.rate.length;
+//     console.log(rateLength);
 
-  // post.moyenne prends la valeur du résultat de l'opération. avec post.updateOne()
+//     // On stocke l'objet moyenne du post dans une variable
+//     let averageRate = post.moyenne;
+//     console.log(averageRate);
 
-  // la réponse en .then "moyenne calculé".
-  // 
-}
+//     // si il y a des valeurs dans le tableau des notes du post
+//     if (post.rate != null) {
+
+//       // on utilise notre fonction de calc de moy numAverage()
+//       var b = rateLength;
+//       var c = 0, i;
+//       for (i = 0; i < b; i++) {
+//         c += Number(post.rate[i]);
+//       }
+//       let averageMoyenne = c / b
+//       console.log(averageMoyenne);
+
+//       // post.moyenne prends la valeur du résultat de l'opération. avec post.updateOne()
+//       Post.updateOne(
+//         { _id: req.params.id },
+//         {
+//           $set: {
+//             moyenne: averageMoyenne,
+//           }
+//         }
+//       )
+//         // la réponse en .then "moyenne calculé".
+//         .then(res.status(200).json({ message: "average rate score calculated" }))
+//       // .catch error 
+//     }
+//     // si il n'y a encore aucune note sur ce post
+//     else {
+//       averageRate = null
+//     }
+//   })
+// }

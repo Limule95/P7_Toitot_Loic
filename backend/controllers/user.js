@@ -13,6 +13,7 @@ exports.signup = (req, res, next) => {
     return res.status(401).json({ message: "Pseudo invalid" });
   }
   let firstNameRegExp = new RegExp("^[a-zA-Z]{1,}$");
+
   if (!firstNameRegExp.test(req.body.firstName)) {
     return res.status(401).json({ message: "first name invalid" });
   }
@@ -30,7 +31,7 @@ exports.signup = (req, res, next) => {
   if (!passworldRegExp.test(req.body.password)) {
     return res.status(403).json({ message: "Password invalid" });
   }
-  
+
   bcrypt
     .hash(req.body.password, parseInt(hashSecu))
     .then((hash) => {
