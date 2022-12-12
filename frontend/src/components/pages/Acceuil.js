@@ -232,7 +232,7 @@ const Acceuil = () => {
                   <span>Settings</span>
                 </li>
                 <li className="menu__nav__item" onClick={logOut}>
-                  <i className='bx bx-cog'></i>
+                  <i class='bx bx-log-out'></i>
                   <span>logout</span>
                 </li>
               </ul>
@@ -301,7 +301,7 @@ const Acceuil = () => {
         <div className="acceuil-page__all-post">
 
 
-          {datas.slice(0, 5).map((post) => (
+          {datas.slice(0, 3).map((post) => (
             <div
               className="acceuil-page__all-post__post"
               target="e"
