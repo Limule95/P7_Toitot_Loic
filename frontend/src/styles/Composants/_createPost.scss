@@ -36,12 +36,44 @@
   &__form-new-post {
     margin-top: 70px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     font-size: 20px;
     width: 100%;
     align-items: center;
     justify-items: center;
+
+    &__title {
+
+      &--input {
+        color: white;
+        height: 40px;
+        border-radius: 8px;
+        outline: none;
+        border: 1px #090909 solid;
+        background: linear-gradient(145deg, #171717, #444245);
+        box-shadow: inset 2px 2px 0px #7d7c7e,
+          inset -2px -2px 0px #1c1c1c;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: inherit;
+          background: linear-gradient(145deg, #262626, #606060);
+          width: 7.25em;
+          height: 7.25em;
+          z-index: -1;
+          box-shadow: 11px 11px 22px #141414,
+            -11px -11px 22px #525252;
+        }
+      }
+
+      color: white;
+
+    }
 
     &__form-text {
       display: flex;
@@ -49,27 +81,35 @@
       height: 100px;
       color: white;
 
-      label {
-        margin-bottom: 15px;
+      &--textarea {
+        color: white;
+
+        width: 190px;
+        border-radius: 8px;
+        outline: none;
+        border: 1px #090909 solid;
+        background: linear-gradient(145deg, #171717, #444245);
+        box-shadow: inset 2px 2px 0px #7d7c7e,
+          inset -2px -2px 0px #1c1c1c;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: inherit;
+          background: linear-gradient(145deg, #262626, #606060);
+          width: 7.25em;
+          height: 7.25em;
+          z-index: -1;
+          box-shadow: 11px 11px 22px #141414,
+            -11px -11px 22px #525252;
+        }
       }
 
-      textarea {
-        font-size: 20px;
-        font-family: $font-1;
-        background: white;
-        width: clamp(200px, 20vw, 600px);
-        resize: vertical;
-        padding: 10px;
-        outline: none;
-        border-radius: 15px;
-        border: none;
-        transition: all 500ms ease;
-
-        &:focus,
-        &:hover {
-          scale: 1.1;
-          transition: all 250ms ease-out;
-        }
+      label {
+        margin-bottom: 15px;
       }
     }
 

@@ -71,9 +71,35 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          direction: rtl;
 
           i {
             font-size: clamp(2.5em, 3vw, 4em);
+            color: linear-gradient(145deg, #262626, #606060);
+
+            &:hover {
+              text-shadow: 0px 0px 15px #008ECE;
+            }
+          }
+
+          .b1:hover~i {
+            text-shadow: 0px 0px 15px #008ECE;
+          }
+
+          .b2:hover~i {
+            text-shadow: 0px 0px 15px #008ECE;
+          }
+
+          .b3:hover~i {
+            text-shadow: 0px 0px 15px #008ECE;
+          }
+
+          .b4:hover~i {
+            text-shadow: 0px 0px 15px #008ECE;
+          }
+
+          .b5:hover~i {
+            text-shadow: 0px 0px 15px #008ECE;
           }
         }
 

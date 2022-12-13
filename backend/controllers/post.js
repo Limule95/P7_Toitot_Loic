@@ -20,6 +20,7 @@ exports.createPost = (req, res) => {
       if (messageFild !== "" && !req.file) { // On crée un nouveau post avec juste un message
         const post = new Post({
           userId: req.auth.userId,
+          title: req.body.title,
           pseudo: req.body.pseudo,
           author: authorName,
           message: req.body.message,
@@ -37,6 +38,7 @@ exports.createPost = (req, res) => {
         // Si il y un message et un fichier else if (messageFild && req.file) { // On crée un nouveau post avec un message et une image
         const post = new Post({
           userId: req.auth.userId,
+          title: req.body.title,
           pseudo: req.body.pseudo,
           author: authorName,
           message: req.body.message,
@@ -239,49 +241,3 @@ exports.ratePost = (req, res) => {
     });
   }).catch((err) => res.status(500).json({ error, message: "utilisateur introuvable" }));
 }
-
-// ********** Route pour calculer la moyenne d'un livre **************
-// exports.postAverage = (req, res) => {
-//   // On identifie le post dont on veut la moyenne. post.findOne()
-//   Post.findOne({ _id: req.params.id }).then((post) => {
-
-
-//     // on récupère le tableau des rates dans une var . let averageRate = post.rate
-//     let rateLength = post.rate.length;
-//     console.log(rateLength);
-
-//     // On stocke l'objet moyenne du post dans une variable
-//     let averageRate = post.moyenne;
-//     console.log(averageRate);
-
-//     // si il y a des valeurs dans le tableau des notes du post
-//     if (post.rate != null) {
-
-//       // on utilise notre fonction de calc de moy numAverage()
-//       var b = rateLength;
-//       var c = 0, i;
-//       for (i = 0; i < b; i++) {
-//         c += Number(post.rate[i]);
-//       }
-//       let averageMoyenne = c / b
-//       console.log(averageMoyenne);
-
-//       // post.moyenne prends la valeur du résultat de l'opération. avec post.updateOne()
-//       Post.updateOne(
-//         { _id: req.params.id },
-//         {
-//           $set: {
-//             moyenne: averageMoyenne,
-//           }
-//         }
-//       )
-//         // la réponse en .then "moyenne calculé".
-//         .then(res.status(200).json({ message: "average rate score calculated" }))
-//       // .catch error 
-//     }
-//     // si il n'y a encore aucune note sur ce post
-//     else {
-//       averageRate = null
-//     }
-//   })
-// }

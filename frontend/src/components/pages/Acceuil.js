@@ -75,6 +75,8 @@ const Acceuil = () => {
   // Function requete (POST) createPost
   const handlePost = (e) => {
     e.preventDefault();
+    let title = document.querySelector("#title").value;
+    console.log(title);
     let pseudo = user.pseudo;
     let author = user.isAuthor;
     const message = document.querySelector("#message").value;
@@ -88,6 +90,7 @@ const Acceuil = () => {
       },
       data: {
         pseudo,
+        title,
         message,
         author,
         image: image,
@@ -95,6 +98,7 @@ const Acceuil = () => {
     })
       .then((res) => {
         setLoading(true);
+        document.querySelector("#title").value = null;
         document.querySelector("#message").value = null;
         document.getElementById("file-create").value = null;
       })
@@ -232,7 +236,7 @@ const Acceuil = () => {
                   <span>Settings</span>
                 </li>
                 <li className="menu__nav__item" onClick={logOut}>
-                  <i class='bx bx-log-out'></i>
+                  <i className='bx bx-log-out'></i>
                   <span>logout</span>
                 </li>
               </ul>
@@ -266,9 +270,14 @@ const Acceuil = () => {
               className="acceuil-page__form-container-create__form-new-post"
               onSubmit={handlePost}
             >
+              <div className="acceuil-page__form-container-create__form-new-post__title">
+                <label htmlFor="title">Titre, </label> <br />
+                <input type="text" id="title" className="acceuil-page__form-container-create__form-new-post__title--input" maxLength="100" />
+              </div>
+
               <div className="acceuil-page__form-container-create__form-new-post__form-text">
                 <label htmlFor="message">Synopsis, </label>
-                <textarea name="text" id="message" maxLength="500" />
+                <textarea name="text" rows="50" id="message" className="acceuil-page__form-container-create__form-new-post__form-text--textarea" maxLength="500" />
               </div>
 
               <div className="acceuil-page__form-container-create__form-new-post__form-file">
@@ -300,7 +309,6 @@ const Acceuil = () => {
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
 
-
           {datas.slice(0, 3).map((post) => (
             <div
               className="acceuil-page__all-post__post"
@@ -315,7 +323,7 @@ const Acceuil = () => {
               >
                 <div className="acceuil-page__all-post__post__post-info__box-text">
                   <div className="acceuil-page__all-post__post__post-info__box-text__post-pseudo">
-                    <p>{post.pseudo}</p>
+                    <p>{post.title}</p>
                     <p className="acceuil-page__all-post__post__post-info__box-text__post-pseudo__auteur">Auteur : {post.author}</p>
                   </div>
                   <div className="acceuil-page__all-post__post__post-info__box-text__post-text">
@@ -340,19 +348,21 @@ const Acceuil = () => {
                   </div>
                 )}
 
-
                 <div className="acceuil-page__all-post__post__post-info__box-event-interact">
-                  <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">
-                    <i id={post._id} data-value="1" className="fa-solid fa-star" onClick={ratePost}></i>
-                    <i id={post._id} data-value="2" className="fa-solid fa-star" onClick={ratePost}></i>
-                    <i id={post._id} data-value="3" className="fa-solid fa-star" onClick={ratePost}></i>
-                    <i id={post._id} data-value="4" className="fa-solid fa-star" onClick={ratePost}></i>
-                    <i id={post._id} data-value="5" className="fa-solid fa-star" onClick={ratePost}></i>
-                  </div>
+
+                  {(user.isAuthor === false) && (
+                    <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">
+                      <i id={post._id} data-value="5" className="fa-solid fa-star b1" onClick={ratePost}></i>
+                      <i id={post._id} data-value="4" className="fa-solid fa-star b2" onClick={ratePost}></i>
+                      <i id={post._id} data-value="3" className="fa-solid fa-star b3" onClick={ratePost}></i>
+                      <i id={post._id} data-value="2" className="fa-solid fa-star b4" onClick={ratePost}></i>
+                      <i id={post._id} data-value="1" className="fa-solid fa-star b5" onClick={ratePost}></i>
+                    </div>
+                  )}
+
 
                   {(user._id === post.userId || user.isAdmin === true) && (
                     <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
-
                       <button
                         onClick={toggleFormAcces}
                         className="btn-modal"
@@ -361,7 +371,6 @@ const Acceuil = () => {
                         Modifier
                       </button>
                     </div>
-
                   )}
                 </div>
               </div>

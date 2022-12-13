@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 //On crée un schema "postSchema"
 const postSchema = mongoose.Schema({
   userId: { type: String, required: true },
+  title: { type: String, required: true },
   author: { type: String, required: true },
   pseudo: { type: String, required: true },
   message: { type: String, required: true, maxlength: 500 },
