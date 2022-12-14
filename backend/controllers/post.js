@@ -26,7 +26,6 @@ exports.createPost = (req, res) => {
           author: authorName,
           message: req.body.message,
           image: "https://img5.goodfon.com/wallpaper/nbig/9/16/cyberpunk-car-supercar-art-anime-japan-kanji-japanse-street.jpg",
-
         });
         post.save().then(() => {
           res.status(201).json({ message: "Post enregistré !" });
