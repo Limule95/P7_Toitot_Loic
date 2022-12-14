@@ -1,5 +1,6 @@
 //Import du module mongoose
 const mongoose = require("mongoose");
+const { stringify } = require("querystring");
 
 //On crée un schema "postSchema"
 const postSchema = mongoose.Schema({
@@ -11,6 +12,18 @@ const postSchema = mongoose.Schema({
   image: { type: String },
   rate: { type: [Number], default: null },
   moyenne: { type: Number, default: null },
+  comments: {
+    type: [
+      {
+        commenterId: String,
+        commenterName: String,
+        text: String,
+        timestamp: Number
+      }
+    ],
+    required: true,
+  },
+
 });
 
 // On exporte postSchema
