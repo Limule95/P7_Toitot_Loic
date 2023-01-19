@@ -188,6 +188,9 @@ const Acceuil = () => {
     window.location = "/";
   };
 
+  // *********** fonction onClick() sur le user.authorName du front pour récuperer l'évenement et trouver la route vers l'id de cette user.
+
+
   // retour HTML FRONT
   return (
     <>

@@ -82,7 +82,7 @@ exports.login = (req, res, next) => {
     })
     .catch((err) => res.status(500).json(err));
 };
-// Information utisilateur
+// Information utisilateur connecté
 exports.getOneUser = (req, res) => {
   User.findOne({ _id: req.params.id })
     .then((user) => {
@@ -90,6 +90,14 @@ exports.getOneUser = (req, res) => {
     })
     .catch((err) => res.status(500).json(err));
 };
+// Informations utilisateur cliqué ************** TO BE FIXED (req.query vs req.body vs req.params)
+// exports.getOneUser = (req, res) => {
+//   User.findOne({ _id: req.body.id })
+//     .then((user) => {
+//       res.status(201).json(user);
+//     })
+//     .catch((err) => res.status(500).json(err));
+// };
 // Afficher tous les users
 exports.getAllUser = async (req, res) => {
   //users attend la reponse de User.find sans paramettre pour afficher tous les users
