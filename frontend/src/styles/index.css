@@ -10,13 +10,13 @@ body {
   background-attachment: fixed;
 }
 
-.profil-page {
+.log-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 200px;
 }
-.profil-page img {
+.log-page img {
   width: clamp(150px, 15vw, 400px);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   box-shadow: 0 8px 32px rgb(2, 4, 24);
@@ -25,7 +25,7 @@ body {
   border-radius: 50%;
   margin: 20px 0px;
 }
-.profil-page__log-container__connection-form {
+.log-page__log-container__connection-form {
   font-size: clamp(1em, 2vw, 1.5em);
   color: white;
   backdrop-filter: blur(10px);
@@ -37,19 +37,19 @@ body {
   text-align: center;
   border-radius: 20px;
 }
-.profil-page__log-container__connection-form__form-container {
+.log-page__log-container__connection-form__form-container {
   display: flex;
   padding: 20px;
   justify-content: space-between;
 }
-.profil-page__log-container__connection-form__form-container ul {
+.log-page__log-container__connection-form__form-container ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 0;
   margin: 0 40px;
 }
-.profil-page__log-container__connection-form__form-container ul .active-btn {
+.log-page__log-container__connection-form__form-container ul .active-btn {
   padding: 20px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -60,18 +60,18 @@ body {
   cursor: pointer;
   transition: all 500ms ease;
 }
-.profil-page__log-container__connection-form__form-container ul .active-btn:focus, .profil-page__log-container__connection-form__form-container ul .active-btn:hover {
+.log-page__log-container__connection-form__form-container ul .active-btn:focus, .log-page__log-container__connection-form__form-container ul .active-btn:hover {
   scale: 1.05;
   transition: all 200ms ease-out;
 }
-.profil-page__log-container__connection-form__form-container ul li:not(.active-btn) {
+.log-page__log-container__connection-form__form-container ul li:not(.active-btn) {
   list-style: none;
   border-radius: 15px;
   cursor: pointer;
   padding: 10px;
   transition: all 500ms ease;
 }
-.profil-page__log-container__connection-form__form-container input {
+.log-page__log-container__connection-form__form-container input {
   padding: 15px 20px;
   margin: 5px;
   font-size: 1.2rem;
@@ -82,11 +82,11 @@ body {
   border: none;
   transition: all 500ms ease;
 }
-.profil-page__log-container__connection-form__form-container input:focus, .profil-page__log-container__connection-form__form-container input:hover {
+.log-page__log-container__connection-form__form-container input:focus, .log-page__log-container__connection-form__form-container input:hover {
   scale: 1.05;
   transition: all 200ms ease-out;
 }
-.profil-page__log-container__connection-form__form-container button {
+.log-page__log-container__connection-form__form-container button {
   border-radius: 15px;
   outline: none;
   border: none;
@@ -105,7 +105,7 @@ body {
   height: 50px;
   transition: all 500ms ease;
 }
-.profil-page__log-container__connection-form__form-container button:focus, .profil-page__log-container__connection-form__form-container button:hover {
+.log-page__log-container__connection-form__form-container button:focus, .log-page__log-container__connection-form__form-container button:hover {
   scale: 1.1;
   transition: all 500ms ease-out;
 }
@@ -683,6 +683,10 @@ body {
   text-shadow: 0 0 10px #9d68f1, 0 0 20px #9d68f1, 0 0 40px #9d68f1, 0 0 80px #9d68f1, 0 0 160px #9d68f1;
 }
 
+body {
+  color: white;
+}
+
 @media screen and (max-width: 1850px) {
   .acceuil-page__all-post {
     grid-template-columns: repeat(2, 0.4fr);
@@ -694,16 +698,16 @@ body {
   }
 }
 @media screen and (max-width: 600px) {
-  .profil-page img {
+  .log-page img {
     width: 80%;
   }
-  .profil-page__log-container__connection-form {
+  .log-page__log-container__connection-form {
     min-width: auto;
   }
-  .profil-page__log-container__connection-form__form-container {
+  .log-page__log-container__connection-form__form-container {
     flex-direction: column;
   }
-  .profil-page__log-container__connection-form__form-container ul {
+  .log-page__log-container__connection-form__form-container ul {
     margin-bottom: 30px;
   }
 }

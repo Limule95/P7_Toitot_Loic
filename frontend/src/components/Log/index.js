@@ -18,8 +18,8 @@ const Log = (props) => {
   };
 
   return (
-    <div className="profil-page__log-container__connection-form">
-      <div className="profil-page__log-container__connection-form__form-container">
+    <div className="log-page__log-container__connection-form">
+      <div className="log-page__log-container__connection-form__form-container">
         <ul>
           <li
             onClick={handleModals}

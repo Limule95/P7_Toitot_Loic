@@ -47,6 +47,8 @@ const Acceuil = () => {
     })
       .then((res) => {
         setUser(res.data);
+        console.log(res.data);
+
       })
       .catch((err) => {
         console.log(err);
@@ -66,6 +68,8 @@ const Acceuil = () => {
       .then((res) => {
         setDatas(res.data);
         setLoading("chargement");
+        console.log(res.data);
+
       })
       .catch((err) => {
         console.log(err);
