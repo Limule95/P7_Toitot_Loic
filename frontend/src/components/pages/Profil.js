@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 function Profil() {
     // recuperation de l'id et token de la personne connecté
     let userIdLocalStorage = localStorage.getItem("userId");
@@ -32,9 +33,31 @@ function Profil() {
     });
 
     const addBio = () => {
+        const newBio = prompt("Veuillez entrer votre biographie :");
 
-    }
+        if (newBio !== null) {
+            axios({
+                method: "PUT",
+                url: `http://localhost:8000/api/auth/${userIdLocalStorage}`,
+                headers: {
+                    authorization: `Bearer ${tokenLocalStorage}`,
+                    "Content-Type": "application/json",
+                },
+                data: {
+                    bio: newBio,
+                },
+            })
+                .then((res) => {
+                    setUser(res.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+    };
 
+
+    const formAcces = user.bio === null;
     return (
 
         <div className="profil">
@@ -42,16 +65,14 @@ function Profil() {
 
                 <p className="profil__info__pseudo">{user.pseudo}</p>
                 <p className="profil__info__name">{user.firstName} {user.lastName}</p>
-                {(user.bio != null) && (
+                {user.bio !== null ? (
                     <div className="profil__info__bio">
                         <p className="profil__info__bio--text">{user.bio}</p>
-                        <button className="profil__info__bio--btn" onClick={updateBio}>Ajoutez une biographie</button>
+                        <button className="profil__info__bio--btn" onClick={addBio}>
+                            Ajouter une biographie
+                        </button>
                     </div>
-
-
-
-                )}
-                {(user.bio === null) && (
+                ) : (
 
                     <div className="div">
                         <button className="profil__info__bio--btn" onClick={addBio}>Ajoutez une biographie</button>
