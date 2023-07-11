@@ -110,7 +110,7 @@ exports.updateBio = (req, res) => {
   const { bio } = req.body;
   const userId = req.auth.userId;
 
-  User.findOneAndUpdate({ userId }, { bio }, { new: true })
+  User.findOneAndUpdate({ _id: userId }, { bio }, { new: true })
     .then(user => {
       if (!user) {
         return res.status(404).json("Utilisateur non trouvé");

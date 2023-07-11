@@ -23,7 +23,7 @@ const Acceuil = () => {
   // Récupération de l'id du post en fonction des intéractions
   const [modalId, setModalId] = useState("");
   // Envoi de note 
-  const [rating, setRating] = useState("")
+  // const [rating, setRating] = useState("")
 
 
   // Recupération des likes de l'utilisateur
@@ -191,6 +191,11 @@ const Acceuil = () => {
     window.location = "/";
   };
 
+  // Function pour ce rendre sur le profil utilisateur
+  const toProfil = (e) => {
+    window.location = "/Profil";
+  }
+
   // retour HTML FRONT
   return (
     <>
@@ -230,9 +235,9 @@ const Acceuil = () => {
                   <i className='bx bxs-bell'></i>
                   <span>Notifications</span>
                 </li>
-                <li className="menu__nav__item">
+                <li className="menu__nav__item" onClick={toProfil}>
                   <i className='bx bxs-user-rectangle'></i>
-                  <span>User</span>
+                  <span>Profil</span>
                 </li>
                 <li className="menu__nav__item">
                   <i className='bx bx-cog'></i>
