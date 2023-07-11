@@ -10,6 +10,7 @@ router.post("/login", userCtrl.login);
 router.get("/:id", userCtrl.getOneUser);
 router.get("/", userCtrl.getAllUser);
 router.delete("/:id", auth, userCtrl.deleteUser);
+router.put("/:id", auth, userCtrl.updateBio)
 
 // On export notre module "router"
 module.exports = router;

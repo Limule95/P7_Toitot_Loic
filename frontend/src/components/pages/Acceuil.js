@@ -14,7 +14,6 @@ const Acceuil = () => {
 
   // Recuperation de tous les posts
   const [datas, setDatas] = useState([]);
-  // console.log(datas);
   // Recuperations des informations de l'user connecté
   const [user, setUser] = useState([]);
   // Raffraichir les données
