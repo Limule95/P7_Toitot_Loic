@@ -1,110 +1,112 @@
 header {
-    position: fixed;
-    height: 100%;
-    z-index: 1;
+  position: fixed;
+  height: 100%;
+  z-index: 1;
 }
 
 .menu {
-    width: 120px;
-    height: 100%;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    box-shadow: 0 8px 32px rgb(2, 4, 24);
-    border-right: 2px solid rgba(255, 255, 255, .09);
-    transition: .4s ease-in-out;
-    
+  width: 120px;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
+  border-right: 2px solid rgba(255, 255, 255, .09);
+  transition: .4s ease-in-out;
 
-    &__toggle {
-        
-      cursor: pointer;
-      position: absolute;
-      color: #fff;
-      top: 180px;
-      right: -20px;
-      font-size: 38px;
-      line-height: 50%;
-      text-align: center;
-      border-radius: 50%;
-      padding: 2px 0 2px 2px;
-      background: linear-gradient(90deg, transparent 50%, rgba(10,
-                10,
-                10,
-                .65) 50%);
-
-      i {
-        transition: .4s linear;
-      }
-    }
-
-    &__logo {
-      width: 100%;
-      padding: 10px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      img {
-        width: clamp(120px, 5vw, 200px);
-        transition: .4s;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-        box-shadow: 0 8px 32px rgb(2, 4, 24);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 50%;
-      }
-      h3 {
-        color: #fff;
-        font-size: 1.5em;
-        margin-top: 0;
-        padding: 5px;
-        font-variant: small-caps;
-        pointer-events: none;
-        text-align: center;
-      }
-    }
-
-    &__nav{
-
-    height: 100%;
-      &__title {
-        
-        color: #dadada;
-        margin: 20px 0 10px;
-        pointer-events: none;
-      }
-      ul {
-        padding-left: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-      }
-      &__item {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        border-radius: 4px;
-        width: 100%;
-        height: 50px;
-        padding: 0 16px;
-        margin: 8px 0;
-        color: #fff;
-        transition: .3s;
-
-        &:hover{ 
-          background: rgba(255, 255, 255, .1);
-        }
-        i {
-          font-size: 26px;
-        }
-        span {      
-          font-size: 18px;
-          margin-left: 8px;
-          pointer-events: none;
-          opacity: 0;
-        }
-      }
-    }
+  &.open {
+    width: 360px;
+  }
 }
 
+.menu__toggle {
+  cursor: pointer;
+  position: absolute;
+  color: #fff;
+  top: 180px;
+  right: -20px;
+  font-size: 38px;
+  line-height: 50%;
+  text-align: center;
+  border-radius: 50%;
+  padding: 2px 0 2px 2px;
+  background: linear-gradient(90deg, transparent 50%, rgba(10, 10, 10, .65) 50%);
+
+  i {
+    transition: .4s linear;
+  }
+}
+
+.menu__logo {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu__logo img {
+  width: clamp(120px, 5vw, 200px);
+  transition: .4s;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+}
+
+.menu__logo h3 {
+  color: #fff;
+  font-size: 1.5em;
+  margin-top: 0;
+  padding: 5px;
+  font-variant: small-caps;
+  pointer-events: none;
+  text-align: center;
+}
+
+.menu__nav {
+  height: 100%;
+}
+
+.menu__nav__title {
+  color: #dadada;
+  margin: 20px 0 10px;
+  pointer-events: none;
+}
+
+.menu__nav ul {
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.menu__nav__item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 4px;
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  margin: 8px 0;
+  color: #fff;
+  transition: .3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, .1);
+  }
+
+  i {
+    font-size: 26px;
+  }
+
+  span {
+    font-size: 18px;
+    margin-left: 8px;
+    pointer-events: none;
+    opacity: 0;
+  }
+}

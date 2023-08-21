@@ -3,92 +3,88 @@ import axios from "axios";
 import logo from "../../assets/MASTERmanga.png";
 
 const Acceuil = () => {
-  // recuperation de l'id et token de la personne connecté
-  let userIdLocalStorage = localStorage.getItem("userId");
-  let tokenLocalStorage = localStorage.getItem("token");
+  // Récupération de l'id et du token de la personne connectée
+  const userIdLocalStorage = localStorage.getItem("userId");
+  const tokenLocalStorage = localStorage.getItem("token");
 
-  // Si il n'y a pas de pseudo ou de token, alors la personne est renvoyer sur la page de connection/inscription "/"
-  if (tokenLocalStorage === null && userIdLocalStorage === null) {
+  // Si il n'y a pas de pseudo ou de token, alors la personne est renvoyée sur la page de connexion/inscription "/"
+  if (!tokenLocalStorage || !userIdLocalStorage) {
     window.location = "/";
   }
 
-  // Recuperation de tous les posts
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Récupération de tous les posts
   const [datas, setDatas] = useState([]);
-  // Recuperations des informations de l'user connecté
+  // Récupération des informations de l'utilisateur connecté
   const [user, setUser] = useState([]);
-  // Raffraichir les données
+  // Rafraîchir les données
   const [loading, setLoading] = useState("");
-  // Controle l'acces aux modifications ou supression de post
+  // Contrôle l'accès aux modifications ou suppression de post
   const [formAcces, setFormAcces] = useState(false);
-  // Récupération de l'id du post en fonction des intéractions
+  // Récupération de l'id du post en fonction des interactions
   const [modalId, setModalId] = useState("");
-  // Envoi de note 
-  // const [rating, setRating] = useState("")
-
-
-  // Recupération des likes de l'utilisateur
 
   // function de récupération de l'id du post et de control d'accès aux modifications des posts
-  const toggleFormAcces = (e) => {
+  const toggleFormAccess = (e) => {
     setModalId(e.target.id);
     setFormAcces(!formAcces);
   };
 
-  // requette (GET) getOneUser
   useEffect(() => {
+    // Requête (GET) pour récupérer les informations de l'utilisateur connecté
     axios({
       method: "GET",
       url: `http://localhost:8000/api/auth/${userIdLocalStorage}`,
       headers: {
-        authorization: `Bearer ${tokenLocalStorage}`,
+        Authorization: `Bearer ${tokenLocalStorage}`,
         "Content-Type": "application/json",
       },
     })
       .then((res) => {
         setUser(res.data);
         console.log(res.data);
-
       })
       .catch((err) => {
         console.log(err);
-      });
-  }, [loading]);
+      }, [loading]);
 
-  // requette (GET) getAllPost
-  useEffect(() => {
+    // Requête (GET) pour récupérer tous les posts
     axios({
       method: "GET",
-      url: `http://localhost:8000/api/post`,
+      url: "http://localhost:8000/api/post",
       headers: {
-        authorization: `Bearer ${tokenLocalStorage}`,
+        Authorization: `Bearer ${tokenLocalStorage}`,
         "Content-Type": "application/json",
       },
     })
       .then((res) => {
         setDatas(res.data);
-        setLoading("chargement");
+        setLoading("true");
         console.log(res.data);
-
       })
       .catch((err) => {
         console.log(err);
       });
   }, [loading]);
 
-  // Function requete (POST) createPost
   const handlePost = (e) => {
     e.preventDefault();
-    let title = document.querySelector("#title").value;
-    console.log(title);
-    let pseudo = user.pseudo;
-    let author = user.isAuthor;
+    const title = document.querySelector("#title").value;
+    const pseudo = user.pseudo;
+    const author = user.isAuthor;
     const message = document.querySelector("#message").value;
-    let image = document.getElementById("file-create").files[0];
+    const image = document.getElementById("file-create").files[0];
+
+    // Requête (POST) pour créer un nouveau post
     axios({
       method: "post",
-      url: `http://localhost:8000/api/post`,
+      url: "http://localhost:8000/api/post",
       headers: {
-        authorization: `Bearer ${tokenLocalStorage}`,
+        Authorization: `Bearer ${tokenLocalStorage}`,
         "Content-Type": "multipart/form-data",
       },
       data: {
@@ -96,31 +92,30 @@ const Acceuil = () => {
         title,
         message,
         author,
-        image: image,
+        image,
       },
     })
       .then((res) => {
-        setLoading(true);
-        document.querySelector("#title").value = null;
-        document.querySelector("#message").value = null;
-        document.getElementById("file-create").value = null;
+        setLoading("tres");
+        document.querySelector("#title").value = "";
+        document.querySelector("#message").value = "";
+        document.getElementById("file-create").value = "";
       })
       .catch((res) => {
         console.log(res);
       });
   };
 
-  // function requette (DELETE) deletePost
   const delPost = (e) => {
     e.preventDefault();
     const id = modalId;
-    console.log(id);
-    setFormAcces(!formAcces);
+
+    // Requête (DELETE) pour supprimer un post
     axios({
       method: "delete",
       url: `http://localhost:8000/api/post/${id}`,
       headers: {
-        authorization: `Bearer ${tokenLocalStorage}`,
+        Authorization: `Bearer ${tokenLocalStorage}`,
         "Content-Type": "application/json",
       },
     })
@@ -160,16 +155,17 @@ const Acceuil = () => {
       });
   };
 
-  // Fonction requète PATCH vers le controller rate ****TO BE TESTED
   const ratePost = (e) => {
     e.preventDefault();
     const id = e.target.id;
     const rate = e.target.dataset.value;
+
+    // Requête (PATCH) pour noter un post
     axios({
       method: "patch",
       url: `http://localhost:8000/api/post/${id}`,
       headers: {
-        authorization: `Bearer ${tokenLocalStorage}`,
+        Authorization: `Bearer ${tokenLocalStorage}`,
         "Content-Type": "application/json",
       },
       data: {
@@ -185,27 +181,25 @@ const Acceuil = () => {
       });
   };
 
-  // Function de déconnection *** TO BE CONNECTED TO BUTTON
   const logOut = (e) => {
+    e.preventDefault();
     localStorage.clear();
     window.location = "/";
   };
 
-  // Function pour ce rendre sur le profil utilisateur
-  const toProfil = (e) => {
+  const toProfile = (e) => {
+    e.preventDefault();
     window.location = "/Profil";
-  }
-
+  };
   // retour HTML FRONT
   return (
     <>
-      <div className="acceuil-page">
+      <div className={`acceuil-page ${isMenuOpen ? "menu-open" : ""}`}>
         {/* ************************HEADER FINAL************************* */}
         <header>
           <div className="menu">
-
-            <div className="menu__toggle">
-              <i className="bx bx-chevron-right"></i>
+            <div className="menu__toggle" onClick={toggleMenu}>
+              <i className={`bx ${isMenuOpen ? "bx-chevron-left" : "bx-chevron-right"}`}></i>
             </div>
 
             <div className="menu__logo">
@@ -214,9 +208,7 @@ const Acceuil = () => {
             </div>
 
             <nav className="menu__nav">
-              <div className="menu__nav__title">
-                Management
-              </div>
+              <div className="menu__nav__title">Management</div>
 
               <ul>
                 <li className="menu__nav__item">
@@ -224,35 +216,32 @@ const Acceuil = () => {
                   <span>Home</span>
                 </li>
                 <li className="menu__nav__item">
-                  <i className='bx bxs-wallet'></i>
+                  <i className="bx bxs-wallet"></i>
                   <span>Wallet</span>
                 </li>
                 <li className="menu__nav__item">
-                  <i className='bx bxs-basket'></i>
+                  <i className="bx bxs-basket"></i>
                   <span>Basket</span>
                 </li>
                 <li className="menu__nav__item">
-                  <i className='bx bxs-bell'></i>
+                  <i className="bx bxs-bell"></i>
                   <span>Notifications</span>
                 </li>
-                <li className="menu__nav__item" onClick={toProfil}>
-                  <i className='bx bxs-user-rectangle'></i>
+                <li className="menu__nav__item" onClick={toProfile}>
+                  <i className="bx bxs-user-rectangle"></i>
                   <span>Profil</span>
                 </li>
                 <li className="menu__nav__item">
-                  <i className='bx bx-cog'></i>
+                  <i className="bx bx-cog"></i>
                   <span>Settings</span>
                 </li>
                 <li className="menu__nav__item" onClick={logOut}>
-                  <i className='bx bx-log-out'></i>
-                  <span>logout</span>
+                  <i className="bx bx-log-out"></i>
+                  <span>Logout</span>
                 </li>
               </ul>
 
-
-              <div className="menu__nav__title">
-                Supports
-              </div>
+              <div className="menu__nav__title">Supports</div>
 
               <ul>
                 <li className="menu__nav__item">
@@ -260,7 +249,7 @@ const Acceuil = () => {
                   <span>Get Help</span>
                 </li>
                 <li className="menu__nav__item">
-                  <i className='bx bxs-message-dots'></i>
+                  <i className="bx bxs-message-dots"></i>
                   <span>Send Feedback</span>
                 </li>
               </ul>
@@ -372,7 +361,7 @@ const Acceuil = () => {
                   {(user._id === post.userId || user.isAdmin === true) && (
                     <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
                       <button
-                        onClick={toggleFormAcces}
+                        onClick={toggleFormAccess}
                         className="btn-modal"
                         id={post._id}
                       >
