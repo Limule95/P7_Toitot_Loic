@@ -8,6 +8,9 @@ var helmet = require("helmet");
 const dotenv = require("dotenv");
 dotenv.config();
 
+// Configuration de Mongoose
+mongoose.set("strictQuery", true);
+
 //route de controles de variables d'envirronement
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
