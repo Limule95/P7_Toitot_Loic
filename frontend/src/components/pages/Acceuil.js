@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../../assets/MASTERmanga.png";
+import Comment from "../mecanisme/comment";
 
 const Acceuil = () => {
   // Récupération de l'id et du token de la personne connectée
@@ -48,9 +49,12 @@ const Acceuil = () => {
         setUser(res.data);
         console.log(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      }, [loading]);
+      .catch(
+        (err) => {
+          console.log(err);
+        },
+        [loading]
+      );
 
     // Requête (GET) pour récupérer tous les posts
     axios({
@@ -154,7 +158,46 @@ const Acceuil = () => {
         console.log(res);
       });
   };
+  // ------------------------------------------------------------------------
 
+  const handleCommentSubmit = (e, postId) => {
+    e.preventDefault();
+    const commentText = e.target.commentText.value;
+
+    axios({
+      method: "post",
+      url: `http://localhost:8000/api/post/${postId}/comments`,
+      headers: {
+        Authorization: `Bearer ${tokenLocalStorage}`,
+        "Content-Type": "multipart/form-data",
+      },
+      data: {
+        content: commentText,
+        userId: userIdLocalStorage,
+      },
+    })
+      .then((res) => {
+        // Mettez à jour l'état local pour afficher le nouveau commentaire
+        setDatas((prevDatas) => {
+          const updatedDatas = prevDatas.map((post) => {
+            if (post._id === postId) {
+              return {
+                ...post,
+                comments: [...post.comments, res.data],
+              };
+            }
+            return post;
+          });
+          return updatedDatas;
+        });
+        e.target.commentText.value = ""; // Efface le champ de texte du commentaire
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // -------------------------------------------------------------------------
   const ratePost = (e) => {
     e.preventDefault();
     const id = e.target.id;
@@ -199,7 +242,11 @@ const Acceuil = () => {
         <header>
           <div className="menu">
             <div className="menu__toggle" onClick={toggleMenu}>
-              <i className={`bx ${isMenuOpen ? "bx-chevron-left" : "bx-chevron-right"}`}></i>
+              <i
+                className={`bx ${
+                  isMenuOpen ? "bx-chevron-left" : "bx-chevron-right"
+                }`}
+              ></i>
             </div>
 
             <div className="menu__logo">
@@ -260,8 +307,9 @@ const Acceuil = () => {
         {/* ************  Creation de Post ************************* */}
         {(user.isAuthor === true || user.isAdmin === true) && (
           <div className="acceuil-page__form-container-create">
-
-            <h2 className="acceuil-page__form-container-create__pseudo">{user.pseudo}</h2>
+            <h2 className="acceuil-page__form-container-create__pseudo">
+              {user.pseudo}
+            </h2>
             <form
               action=""
               className="acceuil-page__form-container-create__form-new-post"
@@ -269,25 +317,33 @@ const Acceuil = () => {
             >
               <div className="acceuil-page__form-container-create__form-new-post__title">
                 <label htmlFor="title">Titre, </label> <br />
-                <input type="text" id="title" className="acceuil-page__form-container-create__form-new-post__title--input" maxLength="100" />
+                <input
+                  type="text"
+                  id="title"
+                  className="acceuil-page__form-container-create__form-new-post__title--input"
+                  maxLength="100"
+                />
               </div>
 
               <div className="acceuil-page__form-container-create__form-new-post__form-text">
                 <label htmlFor="message">Synopsis, </label>
-                <textarea name="text" rows="50" id="message" className="acceuil-page__form-container-create__form-new-post__form-text--textarea" maxLength="500" />
+                <textarea
+                  name="text"
+                  rows="50"
+                  id="message"
+                  className="acceuil-page__form-container-create__form-new-post__form-text--textarea"
+                  maxLength="500"
+                />
               </div>
 
               <div className="acceuil-page__form-container-create__form-new-post__form-file">
-
                 <label
                   htmlFor="file-create"
                   className="acceuil-page__form-container-create__form-new-post__form-file__file"
                 >
-
                   <i className="fa-solid fa-image"></i>
 
                   <input type="file" name="file" id="file-create" />
-
                 </label>
               </div>
 
@@ -299,14 +355,12 @@ const Acceuil = () => {
                   <i className="fa-solid fa-cloud-arrow-up"></i>
                 </span>
               </button>
-
             </form>
           </div>
         )}
         {/* ************  Affichage des Posts ************************* */}
         <div className="acceuil-page__all-post">
-
-          {datas.slice(0, 3).map((post) => (
+          {datas.slice(0, 10).map((post) => (
             <div
               className="acceuil-page__all-post__post"
               target="e"
@@ -321,7 +375,9 @@ const Acceuil = () => {
                 <div className="acceuil-page__all-post__post__post-info__box-text">
                   <div className="acceuil-page__all-post__post__post-info__box-text__post-pseudo">
                     <p>{post.title}</p>
-                    <p className="acceuil-page__all-post__post__post-info__box-text__post-pseudo__auteur">Auteur : {post.author}</p>
+                    <p className="acceuil-page__all-post__post__post-info__box-text__post-pseudo__auteur">
+                      Auteur : {post.author}
+                    </p>
                   </div>
                   <div className="acceuil-page__all-post__post__post-info__box-text__post-text">
                     <p>Résumé : {post.message}</p>
@@ -334,29 +390,61 @@ const Acceuil = () => {
                 )}
 
                 {/* ************  Interaction  ************ */}
-                {(post.moyenne === null) && (
+                {post.moyenne === null && (
                   <div className="acceuil-page__all-post__post__post-info__note">
                     <p>Note : n/a </p>
                   </div>
                 )}
-                {(post.moyenne != null) && (
+                {post.moyenne != null && (
                   <div className="acceuil-page__all-post__post__post-info__note">
                     <p>Note : {post.moyenne} </p>
                   </div>
                 )}
 
                 <div className="acceuil-page__all-post__post__post-info__box-event-interact">
-
-                  {(user.isAuthor === false) && (
+                  {user.isAuthor === false && (
                     <div className="acceuil-page__all-post__post__post-info__box-event-interact__rate">
-                      <i id={post._id} data-value="5" className="fa-solid fa-star b1" onClick={ratePost}></i>
-                      <i id={post._id} data-value="4" className="fa-solid fa-star b2" onClick={ratePost}></i>
-                      <i id={post._id} data-value="3" className="fa-solid fa-star b3" onClick={ratePost}></i>
-                      <i id={post._id} data-value="2" className="fa-solid fa-star b4" onClick={ratePost}></i>
-                      <i id={post._id} data-value="1" className="fa-solid fa-star b5" onClick={ratePost}></i>
+                      <i
+                        id={post._id}
+                        data-value="5"
+                        className="fa-solid fa-star b1"
+                        onClick={ratePost}
+                      ></i>
+                      <i
+                        id={post._id}
+                        data-value="4"
+                        className="fa-solid fa-star b2"
+                        onClick={ratePost}
+                      ></i>
+                      <i
+                        id={post._id}
+                        data-value="3"
+                        className="fa-solid fa-star b3"
+                        onClick={ratePost}
+                      ></i>
+                      <i
+                        id={post._id}
+                        data-value="2"
+                        className="fa-solid fa-star b4"
+                        onClick={ratePost}
+                      ></i>
+                      <i
+                        id={post._id}
+                        data-value="1"
+                        className="fa-solid fa-star b5"
+                        onClick={ratePost}
+                      ></i>
                     </div>
                   )}
 
+                  <form onSubmit={(e) => handleCommentSubmit(e, post._id)}>
+                    <textarea
+                      name="commentText"
+                      id="commentText"
+                      placeholder="Ajouter un commentaire..."
+                    ></textarea>
+                    <button type="submit">Envoyer</button>
+                  </form>
 
                   {(user._id === post.userId || user.isAdmin === true) && (
                     <div className="acceuil-page__all-post__post__post-info__box-event-interact__box-update-modal">
@@ -419,6 +507,12 @@ const Acceuil = () => {
                   </div>
                 </div>
               )}
+              <div className="comments-section">
+                <h3>Commentaires</h3>
+                {post.comments.map((comment) => (
+                  <Comment key={comment._id} comment={comment} />
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -426,12 +520,9 @@ const Acceuil = () => {
         <div className="acceuil-page__bests">
           <h2 className="acceuil-page__bests-title">Les mieux nôtés,</h2>
 
-          <div className="acceuil-page__bests__swipe">
-
-          </div>
+          <div className="acceuil-page__bests__swipe"></div>
         </div>
       </div>
-
     </>
   );
 };

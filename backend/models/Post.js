@@ -12,18 +12,7 @@ const postSchema = mongoose.Schema({
   image: { type: String },
   rate: { type: [Number], default: null },
   moyenne: { type: Number, default: null },
-  comments: {
-    type: [
-      {
-        commenterId: String,
-        commenterName: String,
-        text: String,
-        timestamp: Number
-      }
-    ],
-    required: true,
-  },
-
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 
 // On exporte postSchema
